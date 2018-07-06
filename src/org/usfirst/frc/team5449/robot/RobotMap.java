@@ -15,19 +15,50 @@ package org.usfirst.frc.team5449.robot;
  */
 public class RobotMap {
 	
-	public static final int LEFT_FRONT_MOTOR_PORT = 1;
-	public static final int LEFT_MIDDLE_MOTOR_PORT = 2;
-	public static final int LEFT_BACK_MOTOR_PORT = 3;
-	public static final int RIGHT_FRONT_MOTOR_PORT = 4;
-	public static final int RIGHT_MIDDLE_MOTOR_PORT = 5;
-	public static final int RIGHT_BACK_MOTOR_PORT = 6;
-	// For example to map the left and right motors, you could define the
-	// following variables to use with your drivetrain subsystem.
-	// public static int leftMotor = 1;
-	// public static int rightMotor = 2;
+	//TalonSRXs
+		//chassis motors
+		//WARNING: PORT NOT ASSIGNED!!
+		public static final int LEFT_FRONT_MOTOR_PORT = 1;
+		public static final int LEFT_MID_MOTOR_PORT = 2;
+		public static final int LEFT_BACK_MOTOR_PORT = 3;
+		public static final int RIGHT_FRONT_MOTOR_PORT = 4;
+		public static final int RIGHT_MID_MOTOR_PORT = 5;
+		public static final int RIGHT_BACK_MOTOR_PORT = 6;
+		//Intake motors
+		
+		//Lifter Motors
 
-	// If you are using multiple modules, make sure to define both the port
-	// number and the module. For example you with a rangefinder:
-	// public static int rangefinderPort = 1;
-	// public static int rangefinderModule = 1;
+		//climber motors
+
+	//Pneumatics
+		//PCM module
+		//WARNING: PORT NOT ASSIGNED!!
+		public static final int PCM_PORT = 0;
+		//Intake solenoids 
+
+		//Holder
+
+	//Sensors
+		//gyro
+		public static final int GYRO_PORT = 1;
+		//proximity switches
+		
+		//IR Sensors
+
+		//Encoders
+		//WARNING: PORT NOT ASSIGNED!!
+		public static final int CHASSIS_ENCODER_LEFT_PORT_A = 0;
+		public static final int CHASSIS_ENCODER_LEFT_PORT_B = 0;
+		public static final int CHASSIS_ENCODER_RIGHT_PORT_A = 0;
+		public static final int CHASSIS_ENCODER_RIGHT_PORT_B = 0;
+	//Parameters
+		//Chassis
+
+		//lifter
+
+		//Holder
+
+		//Climber
+
+
 }
