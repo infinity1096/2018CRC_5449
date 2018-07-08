@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team5449.robot.subsystems.Chassis;
+import org.usfirst.frc.team5449.robot.subsystems.Intake;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,8 +24,8 @@ import org.usfirst.frc.team5449.robot.subsystems.Chassis;
  */
 public class Robot extends TimedRobot {
 	public static Chassis chassis = new Chassis();
-	 
-	public static OI oi;
+	public static Intake intake = new Intake();
+	public static OI oi = new OI();
     
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -35,7 +36,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
-		oi = new OI();
+		
 	}
 
 	/**
@@ -106,12 +107,12 @@ public class Robot extends TimedRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		//ONLY FOR TESTING
-		chassis.ArcadeDrive(oi.stick0.getRawAxis(5),oi.stick0.getRawAxis(1));
 		
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
 		}
 	}
+	
 
 	/**
 	 * This function is called periodically during test mode.
