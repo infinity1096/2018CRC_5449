@@ -56,6 +56,7 @@ public class RobotMap {
 	//IR Sensors
 	public static final int HOLDER_IR_PORT = 0;
 	//Encoders
+	
 	public static final int LIFTER_ENCODER_LEFT_PORT_A = 2;
 	public static final int LIFTER_ENCODER_LEFT_PORT_B = 3;
 	public static final int LIFTER_ENCODER_RIGHT_PORT_A = 4;

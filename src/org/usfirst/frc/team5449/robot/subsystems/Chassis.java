@@ -127,9 +127,6 @@ public class Chassis extends Subsystem {
 			return 0;
 		}
 	}
-	
-	
-	
 	private double stickScaling(double input){
 		//TODO scale the stick for this chassis;
 		//limit 0-1 => Deadzone => square input

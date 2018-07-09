@@ -7,11 +7,11 @@ import edu.wpi.first.wpilibj.command.Command;
 public class IntakeClose extends Command{
 
 	public IntakeClose(){
-		requires(Robot.intake);
+		//requires(Robot.intake);
 	}
 	
 	protected void initialize() {
-		Robot.intake.Close();
+		//Robot.intake.Close();
 	}
 	
 	protected void execute() {

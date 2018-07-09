@@ -7,7 +7,9 @@
 
 package org.usfirst.frc.team5449.robot;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -24,8 +26,10 @@ import org.usfirst.frc.team5449.robot.subsystems.Intake;
  */
 public class Robot extends TimedRobot {
 	public static Chassis chassis = new Chassis();
-	public static Intake intake = new Intake();
+	//public static Intake intake = new Intake();
 	public static OI oi = new OI();
+	private static Timer timer = new Timer();
+	private static Encoder encoder = new Encoder(0,1);
     
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -36,6 +40,8 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
+		timer.reset();
+		timer.start();
 		
 	}
 
@@ -93,6 +99,7 @@ public class Robot extends TimedRobot {
     //play hearthstone
 	@Override
 	public void teleopInit() {
+		encoder.reset();
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
@@ -108,6 +115,7 @@ public class Robot extends TimedRobot {
 		Scheduler.getInstance().run();
 		//ONLY FOR TESTING
 		
+		SmartDashboard.putNumber("current time", encoder.get());
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
 		}
