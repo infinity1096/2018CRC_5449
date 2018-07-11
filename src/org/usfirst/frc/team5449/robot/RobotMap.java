@@ -21,24 +21,25 @@ public class RobotMap {
 	public static final int CLIMBER_MOTOR_1_PORT = 5;
 	public static final int CLIMBER_MOTOR_2_PORT = 12;
 	*/
-	public static final int LEFT_FRONT_MOTOR_PORT = 3;
-	public static final int LEFT_MID_MOTOR_PORT = 4;
-	public static final int LEFT_REAR_MOTOR_PORT = 5;
-	public static final int RIGHT_FRONT_MOTOR_PORT = 8;
-	public static final int RIGHT_MID_MOTOR_PORT = 7;
-	public static final int RIGHT_REAR_MOTOR_PORT = 6;
+	public static final int LEFT_FRONT_MOTOR_PORT = 12;
+	public static final int LEFT_MID_MOTOR_PORT = 6;
+	public static final int LEFT_REAR_MOTOR_PORT = 7;
+	public static final int RIGHT_FRONT_MOTOR_PORT = 1;
+	public static final int RIGHT_MID_MOTOR_PORT = 5;
+	public static final int RIGHT_REAR_MOTOR_PORT = 4;
 	//Intake motors
-	public static final int LEFT_INTAKE_PORT = 6;
-	public static final int RIGHT_INTAKE_PORT = 13;
-	public static final int MID_INTAKE_PORT = 7;
+	public static final int LEFT_INTAKE_PORT = 10;
+	public static final int RIGHT_INTAKE_PORT = 0;
+	public static final int MID_INTAKE_PORT = 11;
 	//Lifter Motors
-	public static final int LIFTER_LEFT_MOTOR_PORT = 4;
-	public static final int LIFTER_RIGHT_MOTOR_PORT = 11;
+	//public static final int LIFTER_LEFT_MOTOR_PORT = 4;
+	//public static final int LIFTER_RIGHT_MOTOR_PORT = 11;
+	
 	//climber motors
-	public static final int CLIMBER_LEFT_FRONT_MOTOR_PORT = 0;
-	public static final int CLIMBER_LEFT_REAR_MOTOR_PORT = 1;
-	public static final int CLIMBER_RIGHT_FRONT_MOTOR_PORT = 12;
-	public static final int CLIMBER_RIGHT_REAR_MOTOR_PORT = 11;
+	public static final int CLIMBER_LEFT_FRONT_MOTOR_PORT = 3;
+	public static final int CLIMBER_LEFT_REAR_MOTOR_PORT = 2;
+	public static final int CLIMBER_RIGHT_FRONT_MOTOR_PORT = 8;
+	public static final int CLIMBER_RIGHT_REAR_MOTOR_PORT = 9;
 	
 //Pneumatics
 	//PCM module
