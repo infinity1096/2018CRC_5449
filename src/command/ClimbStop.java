@@ -1,13 +1,16 @@
 package command;
 
 import org.usfirst.frc.team5449.robot.Robot;
-import org.usfirst.frc.team5449.robot.VariablesToBeDetermined;
-
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class Climb_remote extends Command {
+/**
+ *
+ *
+ */
+public class ClimbStop extends Command {
 
-    public Climb_remote() {
+    public ClimbStop() {
     	// Use requires() here to declare subsystem dependencies
         requires(Robot.climber);
     }
@@ -19,21 +22,20 @@ public class Climb_remote extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (Robot.oi.Climber_btn.get()){
-    		Robot.climber.move(Math.abs(VariablesToBeDetermined.CLIMBER_REMOTE_POWER));
-    	}else{
-    		Robot.climber.stop();
-    	}
+    	SmartDashboard.putString("CLIMB", "STOPPED");
+    	Robot.climber.stop();
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
     	Robot.climber.stop();
+    	
     }
 
     // Called when another command which requires one or more of the same

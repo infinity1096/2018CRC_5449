@@ -15,7 +15,9 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team5449.robot.subsystems.Chassis;
+import org.usfirst.frc.team5449.robot.subsystems.Climber;
 import org.usfirst.frc.team5449.robot.subsystems.Intake;
+import org.usfirst.frc.team5449.robot.subsystems.Lifter;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -25,10 +27,12 @@ import org.usfirst.frc.team5449.robot.subsystems.Intake;
  */
 public class Robot extends TimedRobot {
 	public static Chassis chassis = new Chassis();
-	//public static Intake intake = new Intake();
+	public static Intake intake = new Intake();
 	public static OI oi = new OI();
 	private static Timer timer = new Timer();
 	private static Encoder encoder = new Encoder(0,1);
+	public static Lifter lifter = new Lifter();
+	public static Climber climber = new Climber();
     
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();

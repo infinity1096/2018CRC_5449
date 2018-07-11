@@ -22,7 +22,7 @@ public class Intake extends Subsystem{
 	public Intake(){
 		left_intake = new TalonSRX(RobotMap.LEFT_INTAKE_PORT);
 		right_intake = new TalonSRX(RobotMap.RIGHT_INTAKE_PORT);
-		mid_intake = new TalonSRX(RobotMap.MID_INTAKE_PORT);
+		//mid_intake = new TalonSRX(RobotMap.MID_INTAKE_PORT);
 		left_solenoid = new Solenoid(RobotMap.PCM_PORT,RobotMap.INTAKE_LEFT_SOLENOID_PORT);
 		right_solenoid = new Solenoid(RobotMap.PCM_PORT,RobotMap.INTAKE_RIGHT_SOLENOID_PORT);
 		Compressor = new Compressor(RobotMap.PCM_PORT);
@@ -50,7 +50,7 @@ public class Intake extends Subsystem{
 	public void In(){
 		left_intake.set(ControlMode.PercentOutput,-IntakePower/2);
 		right_intake.set(ControlMode.PercentOutput,IntakePower/2);
-		mid_intake.set(ControlMode.PercentOutput, IntakePower/1.5);
+		//mid_intake.set(ControlMode.PercentOutput, IntakePower/1.5);
 	}
 	
 	public void In2(){
@@ -61,19 +61,19 @@ public class Intake extends Subsystem{
 	public void Out(){
 		left_intake.set(ControlMode.PercentOutput,IntakePower/2);
 		right_intake.set(ControlMode.PercentOutput,-IntakePower/2);
-		mid_intake.set(ControlMode.PercentOutput, -IntakePower/1.5);
+		//mid_intake.set(ControlMode.PercentOutput, -IntakePower/1.5);
 	}
 	
 	public void Stop(){
 		left_intake.set(ControlMode.PercentOutput,0);
 		right_intake.set(ControlMode.PercentOutput,0);
-		mid_intake.set(ControlMode.PercentOutput,0);
+		//mid_intake.set(ControlMode.PercentOutput,0);
 	}
 	
 	public void MidStop(){
 		//left_intake.set(ControlMode.PercentOutput,0);
 		//right_intake.set(ControlMode.PercentOutput,0);
-		mid_intake.set(ControlMode.PercentOutput,0);
+		//mid_intake.set(ControlMode.PercentOutput,0);
 	}
 	
 	public void Open(){

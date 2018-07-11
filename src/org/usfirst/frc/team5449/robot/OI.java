@@ -25,6 +25,7 @@ public class OI {
 	//Buttons
 	public JoystickButton button0 = new JoystickButton(stick0,5);
 	public JoystickButton button1 = new JoystickButton(stick0,3);
+	public JoystickButton Climber_btn = new JoystickButton(stick1,7);
 	public OI() {
 		button0.whenPressed(new IntakeOpen());
 		button1.whenPressed(new IntakeClose());
