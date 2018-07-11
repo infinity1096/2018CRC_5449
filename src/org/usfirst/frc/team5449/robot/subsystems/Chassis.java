@@ -36,8 +36,6 @@ public class Chassis extends Subsystem {
     	RightMotorB.setInverted(true);
     	RightMotorC.setInverted(true);
 	}
-	
-	
 	public void tankStyle(double leftInput, double rightInput){
 		double leftPower = stickScaling(leftInput);
 		double rightPower = stickScaling(rightInput);

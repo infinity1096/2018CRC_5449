@@ -29,5 +29,4 @@ public class IntakeClose extends Command{
 		return true;
 	}
 
-	//pdsijfoijdjfosoifjdiojfoisngolwqeadglnvulestb;laoitbloytb;
 }

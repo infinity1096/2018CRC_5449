@@ -56,7 +56,6 @@ public class RobotMap {
 	//IR Sensors
 	public static final int HOLDER_IR_PORT = 0;
 	//Encoders
-	
 	public static final int LIFTER_ENCODER_LEFT_PORT_A = 2;
 	public static final int LIFTER_ENCODER_LEFT_PORT_B = 3;
 	public static final int LIFTER_ENCODER_RIGHT_PORT_A = 4;
@@ -99,8 +98,5 @@ public class RobotMap {
 	public static final double PF_EXPELL_CONSTANT = 1.000;
 	public static final double PF_EXPELL_RANGE = 1.000; //unit: meter
 	public static final double PF_ATTRACT_CONSTANT = 2.000;
-	
-	
-	
-	
+		
 }
