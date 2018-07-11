@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team5449.robot;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
@@ -14,8 +15,11 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import sensors.Encoder_Module;
+
 import org.usfirst.frc.team5449.robot.subsystems.Chassis;
 import org.usfirst.frc.team5449.robot.subsystems.Climber;
+import org.usfirst.frc.team5449.robot.subsystems.Flip;
 import org.usfirst.frc.team5449.robot.subsystems.Intake;
 import org.usfirst.frc.team5449.robot.subsystems.Lifter;
 /**
@@ -33,6 +37,11 @@ public class Robot extends TimedRobot {
 	private static Encoder encoder = new Encoder(0,1);
 	public static Lifter lifter = new Lifter();
 	public static Climber climber = new Climber();
+	public static Flip flip = new Flip();
+	
+	//public static Encoder_Module e1;
+	
+	public static boolean[] Game_data = {false,false,false};
     
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -45,8 +54,13 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		timer.reset();
 		timer.start();
+		lifter.ResetEncoders();
 		
-	}
+		Scheduler.getInstance().removeAll();
+		//flip.ResetEncoders();
+		
+		
+		}
 
 	/**
 	 * This function is called once each time the robot enters Disabled mode.
@@ -107,6 +121,14 @@ public class Robot extends TimedRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
+		Scheduler.getInstance().removeAll();
+		String gamedata;
+		gamedata = DriverStation.getInstance().getGameSpecificMessage();
+		Robot.Game_data[0] = gamedata.charAt(0) == 'R';
+		Robot.Game_data[1] = gamedata.charAt(1) == 'R';
+		Robot.Game_data[2] = gamedata.charAt(2) == 'R';
+		
+		this.chassis.reset();
 
 	}
 

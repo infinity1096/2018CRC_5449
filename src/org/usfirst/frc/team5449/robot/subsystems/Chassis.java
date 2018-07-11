@@ -24,6 +24,9 @@ public class Chassis extends Subsystem {
 	private TalonSRX RightMotorB;
 	private TalonSRX RightMotorC;
 	
+	private Encoder encoder_l;
+	private Encoder encoder_r;
+	
 	public Chassis(){
 		//TODO set ports CHANGE IT TO IMPLEMENT ROBOMAP IF PUT THIS IN USE
 		LeftMotorA = new TalonSRX(RobotMap.LEFT_FRONT_MOTOR_PORT);
@@ -137,6 +140,11 @@ public class Chassis extends Subsystem {
         // Set the default command for a subsystem here.
         setDefaultCommand(new Move());
     }
+    
+    public void reset(){
+    	this.encoder_l.reset();
+    	this.encoder_r.reset();
+    	}
     
     public void stop(){
     	LeftMotorA.set(ControlMode.PercentOutput,0);

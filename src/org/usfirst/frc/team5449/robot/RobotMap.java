@@ -71,7 +71,8 @@ public class RobotMap {
 	public static final int CHASSIS_ENCODER_LEFT_PORT_B = 5;
 	public static final int CHASSIS_ENCODER_RIGHT_PORT_A = 6;
 	public static final int CHASSIS_ENCODER_RIGHT_PORT_B = 7;
-	public static final int FLIP_ENCODER = 5;
+	public static final int FLIP_ENCODER_A = 8;
+	public static final int FLIP_ENCODER_B = 9;
 	public static final int EM_ENCODER_0_PORT_A = 10;
 	public static final int EM_ENCODER_0_PORT_B = 11;
 	public static final int EM_ENCODER_1_PORT_A = 12;
@@ -80,6 +81,8 @@ public class RobotMap {
 	public static final int EM_ENCODER_2_PORT_B = 15;
 //Parameters
 	//Chassis TODO configure
+	
+	
 	public static final double CHASSIS_TURNING_DEADZONE = 0.05;
 	public static final double CHASSIS_MAX_PASSING_ERROR = 0.1;
 	public static final double CHASSIS_TURNING_P = 0.028;
@@ -89,6 +92,7 @@ public class RobotMap {
 	public static final long LIFTER_UP_POSE = 400;
 	public static final long LIFTER_MID2_POSE = 320;
 	public static final long LIFTER_MID_POSE = 150;
+	
 	public static final long LIFTER_DOWN_POSE = 0;
 	public static final double LIFTER_MAXIMUM_PASSING_ERROR = 4;
 	public static final double LIFTER_MAXIMUM_POWER = 0.9;

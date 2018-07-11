@@ -1,6 +1,7 @@
 package org.usfirst.frc.team5449.robot.subsystems;
 
 import org.usfirst.frc.team5449.robot.RobotMap;
+import org.usfirst.frc.team5449.robot.VariablesToBeDetermined;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -25,19 +26,21 @@ public class Lifter extends Subsystem{
 	}
 	
 	//moves lifter
-	public void move(double Power){
+	 public void move(double Power){
 		Liftmotor_LF.set(ControlMode.PercentOutput,Power);
 		Liftmotor_LR.set(ControlMode.PercentOutput,Power);
 		Liftmotor_RF.set(ControlMode.PercentOutput,Power);
 		Liftmotor_RR.set(ControlMode.PercentOutput,Power);
 	}
+	
 	public void move(double Power,double delta_power){
 		
 		Liftmotor_LF.set(ControlMode.PercentOutput,range(Power - delta_power,-RobotMap.LIFTER_MAXIMUM_POWER,RobotMap.LIFTER_MAXIMUM_POWER));
 		Liftmotor_LR.set(ControlMode.PercentOutput,range(Power - delta_power,-RobotMap.LIFTER_MAXIMUM_POWER,RobotMap.LIFTER_MAXIMUM_POWER));
 		Liftmotor_RF.set(ControlMode.PercentOutput,range(Power + delta_power,-RobotMap.LIFTER_MAXIMUM_POWER,RobotMap.LIFTER_MAXIMUM_POWER));
-		Liftmotor_RR.set(ControlMode.PercentOutput,range(Power - delta_power,-RobotMap.LIFTER_MAXIMUM_POWER,RobotMap.LIFTER_MAXIMUM_POWER));
+		Liftmotor_RR.set(ControlMode.PercentOutput,range(Power + delta_power,-RobotMap.LIFTER_MAXIMUM_POWER,RobotMap.LIFTER_MAXIMUM_POWER));
 	}
+	
 	 private double range(double val,double min,double max){
 	    	if (val < min){
 	    		return min;
@@ -71,18 +74,28 @@ public class Lifter extends Subsystem{
 	}
 	
 	//read sensors
-	public int[] get_position2(){
-		int[] val = {lifter_encoder_l.get(),lifter_encoder_r.get()};
+	/*public int[] get_position2(){
+		int[] val = {lifter_encoder.get()};
 		return val;
 	}
 	
 	public int get_position(){
 		int val = (int)(lifter_encoder_l.get() + lifter_encoder_r.get()) / 2;
 		return val;
+	}*/
+	public int get_position(){
+		int[] val = {lifter_encoder.get()};
+		return val[0];
 	}
+	
+	public int[] get_position2(){
+		int[] val = {lifter_encoder.get()};
+		return val;
+	}
+	
 	//TODO
 	public boolean is_down(){
-		return (Math.abs(this.get_position() - RobotMap.LIFTER_DOWN_POSE) < RobotMap.LIFTER_MID_POSE * 0.1);
+		return (Math.abs(this.get_position() - RobotMap.LIFTER_DOWN_POSE) < RobotMap.LIFTER_MID_POSE * VariablesToBeDetermined.LIFTER_POSE_VALUE_1);
 	}
 	
 	public void ResetEncoders(){

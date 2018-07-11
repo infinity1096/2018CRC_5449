@@ -26,6 +26,12 @@ public class OI {
 	public JoystickButton button0 = new JoystickButton(stick0,5);
 	public JoystickButton button1 = new JoystickButton(stick0,3);
 	public JoystickButton Climber_btn = new JoystickButton(stick1,7);
+	
+	public JoystickButton Lifter_UP = new JoystickButton(stick1,7);
+	public JoystickButton Lifter_MID2 = new JoystickButton(stick1,8);
+	public JoystickButton Lifter_MID = new JoystickButton(stick1,10);
+	public JoystickButton Lifter_DOWN = new JoystickButton(stick1,12);
+	
 	public OI() {
 		button0.whenPressed(new IntakeOpen());
 		button1.whenPressed(new IntakeClose());
