@@ -29,17 +29,17 @@ public class RobotMap {
 	public static final int RIGHT_REAR_MOTOR_PORT = 4;
 	//Intake motors
 	public static final int LEFT_INTAKE_PORT = 10;
-	public static final int RIGHT_INTAKE_PORT = 0;
+	public static final int RIGHT_INTAKE_PORT = 9;
 	public static final int FLIP_PORT = 11;
 	//Lifter Motors
 	//public static final int LIFTER_LEFT_MOTOR_PORT = 4;
 	//public static final int LIFTER_RIGHT_MOTOR_PORT = 11;
 	
 	//climber motors
-	public static final int CLIMBER_LEFT_FRONT_MOTOR_PORT = 3;
-	public static final int CLIMBER_LEFT_REAR_MOTOR_PORT = 2;
-	public static final int CLIMBER_RIGHT_FRONT_MOTOR_PORT = 8;
-	public static final int CLIMBER_RIGHT_REAR_MOTOR_PORT = 9;
+	public static final int CLIMBER_LEFT_FRONT_MOTOR_PORT = 11;
+	public static final int CLIMBER_LEFT_REAR_MOTOR_PORT = 12;
+	public static final int CLIMBER_RIGHT_FRONT_MOTOR_PORT = 3;
+	public static final int CLIMBER_RIGHT_REAR_MOTOR_PORT = 0;
 	
 //Pneumatics
 	//PCM module

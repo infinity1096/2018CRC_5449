@@ -139,6 +139,8 @@ public class Robot extends TimedRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		//ONLY FOR TESTING
+		SmartDashboard.putNumber("enc_larm",Robot.lifter.get_position2()[0]);
+		SmartDashboard.putNumber("enc_rarm",Robot.lifter.get_position2()[1]);
 		
 		SmartDashboard.putNumber("current time", encoder.get());
 		if (m_autonomousCommand != null) {
