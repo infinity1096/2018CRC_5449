@@ -1,6 +1,8 @@
 package org.usfirst.frc.team5449.robot.subsystems;
 
 import org.usfirst.frc.team5449.robot.RobotMap;
+import org.usfirst.frc.team5449.robot.VariablesToBeDetermined;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.Solenoid;
@@ -30,7 +32,7 @@ public class Intake extends Subsystem{
 	}
 	
 	//parameters:
-	private double IntakePower = 1.8;
+	private double IntakePower = VariablesToBeDetermined.INTAKE_POWER;
 	
 	
 	@Override

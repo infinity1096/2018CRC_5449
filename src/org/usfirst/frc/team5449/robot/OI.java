@@ -8,7 +8,13 @@
 package org.usfirst.frc.team5449.robot;
 
 import command.IntakeClose;
+import command.IntakeIn;
 import command.IntakeOpen;
+import command.IntakeOut;
+import command.LifterToDown;
+import command.LifterToMid;
+import command.LifterToMid2;
+import command.LifterToUp;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -32,9 +38,20 @@ public class OI {
 	public JoystickButton Lifter_MID = new JoystickButton(stick1,10);
 	public JoystickButton Lifter_DOWN = new JoystickButton(stick1,12);
 	
+	public JoystickButton Intake_out = new JoystickButton(stick1,5);
+	public JoystickButton Intake_in = new JoystickButton(stick1,3);
+	//public 
+	
 	public OI() {
 		button0.whenPressed(new IntakeOpen());
 		button1.whenPressed(new IntakeClose());
+		Lifter_UP.whenPressed(new LifterToUp());
+		Lifter_MID2.whenPressed(new LifterToMid2());
+		Lifter_MID.whenPressed(new LifterToMid());
+		Lifter_DOWN.whenPressed(new LifterToDown());
+		
+		Intake_out.whenPressed(new IntakeOut());
+		Intake_in.whenPressed(new IntakeIn());
 		//examplebutton.whenPressed(new command());
 	}
 	

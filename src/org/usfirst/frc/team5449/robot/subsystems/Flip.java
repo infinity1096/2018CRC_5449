@@ -40,7 +40,11 @@ public class Flip extends Subsystem{
 		int val = flip_encoder.get();
 		return val;
 	}
-	
+
+	public int[] get_position_flip2(){
+		int[] val = {flip_encoder.get()};
+		return val;
+	}
 	
 	@Override
 	protected void initDefaultCommand() {	

@@ -14,4 +14,8 @@ public class Holder extends Subsystem{
 		
 	}
 	
+	/*public boolean is_holding_block() {
+		return true;
+	}*/
+	
 }

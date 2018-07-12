@@ -2,6 +2,7 @@ package command;
 
 import org.usfirst.frc.team5449.robot.Robot;
 import org.usfirst.frc.team5449.robot.RobotMap;
+import org.usfirst.frc.team5449.robot.VariablesToBeDetermined;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
@@ -40,7 +41,28 @@ public class FlipFront extends Command{
 
 	 // Called repeatedly when this Command is scheduled to run
 	 protected void execute() {
-	 	//Robot.lifter.move(Robot.oi.stick1.getX() * 0.4);
+		 double P_output,D_output,dt,output;
+	    	double balance_output;
+	    	error[0] = RobotMap.FLIP_FRONT_POSE - Robot.flip.get_position_flip();
+	    	P_output = error[0] * Kp;
+	    	dt = timer.get() - last_time;
+	    	D_output = Kd * (error[0] - error[1])/dt;
+	    	
+	    	last_time = timer.get();
+	    	output = P_output + D_output;
+	    	output = range2(output,RobotMap.FLIP_MINIMUM_POWER,RobotMap.FLIP_MAXIMUM_POWER);
+	    	balance_error[0] = (Robot.flip.get_position_flip());
+	    	
+	    	if (is_down){
+	    		output *= VariablesToBeDetermined.FLIP_MOVE_OUTPUT_0;
+	    	}
+	    	
+	    	error[1] = error[0];
+	    	balance_output = RobotMap.FLIP_BALANCE_KP * balance_error[0];
+	    	balance_output -= RobotMap.FLIP_BALANCE_KD * (balance_error[0] - balance_error[1]);
+	    	//Robot.lifter.move(output,balance_output);
+	    	balance_error[1] = balance_error[0];
+	 	//Robot.lifter.move(Robot.oi.stick1.getX() * 0.4); 
 	 	
 	 }
 
@@ -61,4 +83,16 @@ public class FlipFront extends Command{
 		return false;
 	}
 
+	
+private double range2(double val,double min,double max){
+	max = Math.abs(max);
+	min = Math.abs(min);
+	if (Math.abs(val)<min){
+		return Math.signum(val) * min;
+	} else if (Math.abs(val) > max){
+		return Math.signum(val) * max;
+	}else{
+		return Math.signum(val) * Math.abs(val);
 	}
+}
+}

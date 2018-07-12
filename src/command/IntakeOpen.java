@@ -7,12 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
 public class IntakeOpen extends Command{
 
 	public IntakeOpen(){
-		//requires(Robot.intake);
+		requires(Robot.intake);
 	}
 	
 	
 	protected void initialize() {
-		//Robot.intake.Open();
+		Robot.intake.Open();
 		
 		
 	}

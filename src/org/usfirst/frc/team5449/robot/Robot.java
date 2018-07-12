@@ -20,6 +20,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team5449.robot.subsystems.Chassis;
 import org.usfirst.frc.team5449.robot.subsystems.Climber;
 import org.usfirst.frc.team5449.robot.subsystems.Flip;
+import org.usfirst.frc.team5449.robot.subsystems.Holder;
 import org.usfirst.frc.team5449.robot.subsystems.Intake;
 import org.usfirst.frc.team5449.robot.subsystems.Lifter;
 /**
@@ -40,6 +41,7 @@ public class Robot extends TimedRobot {
 	public static Lifter lifter = new Lifter();
 	public static Climber climber = new Climber();
 	public static Flip flip = new Flip();
+	public static Holder holder = new Holder();
 	
 	//public static Encoder_Module e1;
 	

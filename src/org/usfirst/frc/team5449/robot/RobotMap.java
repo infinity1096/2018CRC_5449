@@ -74,12 +74,12 @@ public class RobotMap {
 	public static final int CHASSIS_ENCODER_RIGHT_PORT_B = 7;
 	public static final int FLIP_ENCODER_A = 8;
 	public static final int FLIP_ENCODER_B = 9;
-	public static final int EM_ENCODER_0_PORT_A = 10;
+	/*public static final int EM_ENCODER_0_PORT_A = 10;
 	public static final int EM_ENCODER_0_PORT_B = 11;
 	public static final int EM_ENCODER_1_PORT_A = 12;
 	public static final int EM_ENCODER_1_PORT_B = 13;
 	public static final int EM_ENCODER_2_PORT_A = 14;
-	public static final int EM_ENCODER_2_PORT_B = 15;
+	public static final int EM_ENCODER_2_PORT_B = 15;*/
 //Parameters
 	//Chassis TODO configure
 	
@@ -108,12 +108,14 @@ public class RobotMap {
 	public static final double CLIMBER_POWER = 1.000;
 	
 	public static final double FLIP_KP = 0.012;
-	public static final double FLIP_KD = 0.0011;
+	public static final double FLIP_KD = 0.0011; 
 	public static final double FLIP_BALANCE_KP = 0.011;
 	public static final double FLIP_BALANCE_KD = 0;
 	public static final double FLIP_BACK_POSE = 0;
 	public static final double FLIP_MID_POSE = 500;
 	public static final double FLIP_FRONT_POSE = 1000;
+	public static final double FLIP_MAXIMUM_POWER = 0.9;
+	public static final double FLIP_MINIMUM_POWER = 0.1;
 	//Potention field
 	public static final double PF_EXPELL_CONSTANT = 1.000;
 	public static final double PF_EXPELL_RANGE = 1.000; //unit: meter
