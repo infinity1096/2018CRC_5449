@@ -45,7 +45,7 @@ public class Chassis extends Subsystem {
     	RightMotorC.setInverted(true);
     	TargetHeading = 0;
     	is_target_set = false;
-    	reset();
+    	//reset();
     	
 	}
 	public void tankStyle(double leftInput, double rightInput){
