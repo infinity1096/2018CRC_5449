@@ -15,7 +15,7 @@ public class Flip extends Subsystem{
     
     private Encoder flip_encoder;
     private double power;
-    private int current_status = 0;
+    private int current_status = 0;//0 for front, 1 for mid, 2 for back
     
 	public Flip() {
 		FlipMotor = new TalonSRX(RobotMap.FLIP_PORT);
@@ -33,10 +33,13 @@ public class Flip extends Subsystem{
 	}
 	
 	public void stop() {
-		power = this.power;
 		FlipMotor.set(ControlMode.PercentOutput,0);
 	}
 	
+	public int get_position_flip(){
+		int val = flip_encoder.get();
+		return val;
+	}
 	
 	
 	@Override

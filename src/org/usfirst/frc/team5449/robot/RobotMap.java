@@ -21,16 +21,17 @@ public class RobotMap {
 	public static final int CLIMBER_MOTOR_1_PORT = 5;
 	public static final int CLIMBER_MOTOR_2_PORT = 12;
 	*/
-	public static final int LEFT_FRONT_MOTOR_PORT = 12;
+	
+	public static final int LEFT_FRONT_MOTOR_PORT = 7;
 	public static final int LEFT_MID_MOTOR_PORT = 6;
-	public static final int LEFT_REAR_MOTOR_PORT = 7;
-	public static final int RIGHT_FRONT_MOTOR_PORT = 1;
+	public static final int LEFT_REAR_MOTOR_PORT = 8;
+	public static final int RIGHT_FRONT_MOTOR_PORT = 4;
 	public static final int RIGHT_MID_MOTOR_PORT = 5;
-	public static final int RIGHT_REAR_MOTOR_PORT = 4;
+	public static final int RIGHT_REAR_MOTOR_PORT = 1;
 	//Intake motors
 	public static final int LEFT_INTAKE_PORT = 10;
 	public static final int RIGHT_INTAKE_PORT = 9;
-	public static final int FLIP_PORT = 11;
+	public static final int FLIP_PORT = 2;
 	//Lifter Motors
 	//public static final int LIFTER_LEFT_MOTOR_PORT = 4;
 	//public static final int LIFTER_RIGHT_MOTOR_PORT = 11;
@@ -106,11 +107,17 @@ public class RobotMap {
 	//Climber
 	public static final double CLIMBER_POWER = 1.000;
 	
+	public static final double FLIP_KP = 0.012;
+	public static final double FLIP_KD = 0.0011;
+	public static final double FLIP_BALANCE_KP = 0.011;
+	public static final double FLIP_BALANCE_KD = 0;
+	public static final double FLIP_BACK_POSE = 0;
+	public static final double FLIP_MID_POSE = 500;
+	public static final double FLIP_FRONT_POSE = 1000;
 	//Potention field
 	public static final double PF_EXPELL_CONSTANT = 1.000;
 	public static final double PF_EXPELL_RANGE = 1.000; //unit: meter
 	public static final double PF_ATTRACT_CONSTANT = 2.000;
-	
 	
 		
 }

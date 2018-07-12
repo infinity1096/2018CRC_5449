@@ -11,4 +11,6 @@ public class VariablesToBeDetermined {
 	
 	public static final double LIFTER_POSE_VALUE_1 = 0.1;
 	
+	public static final double ENCODER_ROUND_VALUE = 2000;
+	
 }
