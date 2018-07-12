@@ -8,8 +8,9 @@ public class VariablesToBeDetermined {
 	public static final double LIFT_MOVE_OUTPUT_1 = 0.4;
 	public static final double LIFT_MOVE_OUTPUT_2 = 0.8;
 	
-	public static final double JOYSTICK_HANDLER_CHASSIS_1 = 0.4;
-	public static final double JOYSTICK_HANDLER_CHASSIS_2 = 0.8;
+	public static final double JOYSTICK_HANDLER_CHASSIS_1 = 0.75;
+	public static final double JOYSTICK_HANDLER_CHASSIS_2 = 0.4;
+	public static final double JOYSTICK_HANDLER_CHASSIS_3 = 0.8;
 	
 	public static final double LIFTER_POSE_VALUE_1 = 0.1;
 	

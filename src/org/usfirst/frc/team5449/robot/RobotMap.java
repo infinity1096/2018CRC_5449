@@ -120,7 +120,7 @@ public class RobotMap {
 	public static final double PF_EXPELL_CONSTANT = 1.000;
 	public static final double PF_EXPELL_RANGE = 1.000; //unit: meter
 	public static final double PF_ATTRACT_CONSTANT = 2.000;
-	public static final int PCM_PORT = 16;
+	//public static final int PCM_PORT = 16;
 	
 		
 }

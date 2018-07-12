@@ -6,17 +6,17 @@ import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Gyro extends Subsystem{
-	private double gyro_angle;
-	private ADXRS450_Gyro gyro;
+	private static double gyro_angle;
+	private static ADXRS450_Gyro gyro;
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
 		
 	}
 	
-	public double read_gyro() {
+	public static double getAngle() {
 		gyro_angle = gyro.getAngle();
-		return 0;
+		return gyro_angle;
 		
 	}
 	

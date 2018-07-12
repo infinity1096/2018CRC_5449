@@ -25,9 +25,9 @@ public class Intake extends Subsystem{
 		left_intake = new TalonSRX(RobotMap.LEFT_INTAKE_PORT);
 		right_intake = new TalonSRX(RobotMap.RIGHT_INTAKE_PORT);
 		//mid_intake = new TalonSRX(RobotMap.MID_INTAKE_PORT);
-		left_solenoid = new Solenoid(RobotMap.PCM_PORT,RobotMap.INTAKE_LEFT_SOLENOID_PORT);
-		right_solenoid = new Solenoid(RobotMap.PCM_PORT,RobotMap.INTAKE_RIGHT_SOLENOID_PORT);
-		Compressor = new Compressor(RobotMap.PCM_PORT);
+		//left_solenoid = new Solenoid(RobotMap.PCM_PORT,RobotMap.INTAKE_LEFT_SOLENOID_PORT);
+		//right_solenoid = new Solenoid(RobotMap.PCM_PORT,RobotMap.INTAKE_RIGHT_SOLENOID_PORT);
+		//Compressor = new Compressor(RobotMap.PCM_PORT);
 		isin = true;
 	}
 	

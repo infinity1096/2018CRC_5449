@@ -27,6 +27,9 @@ public class Chassis extends Subsystem {
 	private Encoder encoder_l;
 	private Encoder encoder_r;
 	
+	public double TargetHeading = 0;
+	public boolean is_target_set = false;
+	
 	public Chassis(){
 		//TODO set ports CHANGE IT TO IMPLEMENT ROBOMAP IF PUT THIS IN USE
 		LeftMotorA = new TalonSRX(RobotMap.LEFT_FRONT_MOTOR_PORT);
@@ -35,10 +38,15 @@ public class Chassis extends Subsystem {
 		RightMotorA = new TalonSRX(RobotMap.RIGHT_FRONT_MOTOR_PORT);
 		RightMotorB = new TalonSRX(RobotMap.RIGHT_MID_MOTOR_PORT);
 		RightMotorC = new TalonSRX(RobotMap.RIGHT_REAR_MOTOR_PORT);
+		
 		//reverse right side
 		RightMotorA.setInverted(true);
     	RightMotorB.setInverted(true);
     	RightMotorC.setInverted(true);
+    	TargetHeading = 0;
+    	is_target_set = false;
+    	reset();
+    	
 	}
 	public void tankStyle(double leftInput, double rightInput){
 		double leftPower = stickScaling(leftInput);

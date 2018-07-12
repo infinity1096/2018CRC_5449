@@ -30,7 +30,7 @@ public class OI {
 	public Joystick stick0 = new Joystick(0);
 	public Joystick stick1 = new Joystick(1);
 	//Buttons
-	public JoystickButton button0 = new JoystickButton(stick0,5);
+	public JoystickButton button0 = new JoystickButton(stick0,6);
 	public JoystickButton button1 = new JoystickButton(stick0,3);
 	public JoystickButton Climber_btn = new JoystickButton(stick0,7);
 	
