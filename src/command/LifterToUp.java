@@ -73,7 +73,7 @@ public class LifterToUp extends Command {
     }
     
     
-    private double range(double val,double min,double max){
+    public double range(double val,double min,double max){
     	if (val < min){
     		return min;
     	}else if (val > max){

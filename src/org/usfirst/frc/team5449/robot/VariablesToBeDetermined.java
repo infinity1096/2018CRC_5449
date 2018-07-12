@@ -21,4 +21,8 @@ public class VariablesToBeDetermined {
 	
 	public static final double INTAKE_POWER = 1.8;
 	
+	public static final double CBCore_loadFRCfield_Obstacle_Length = 1.42;
+	public static final double CBCore_loadFRCfield_Obstacle_Width = 3.89;
+	public static final double CBCore_loadFRCfield_Coordinate_X = 4.11;
+	public static final double CBCore_loadFRCfield_Coordinate_Y = 4.26;
 }

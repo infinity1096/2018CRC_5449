@@ -89,7 +89,7 @@ public class Lifter extends Subsystem{
 	}
 	
 	public int[] get_position2(){
-		int[] val = {lifter_encoder.get()};
+		int[] val = {lifter_encoder.get(),lifter_encoder.get()};
 		return val;
 	}
 	

@@ -8,9 +8,10 @@
 package org.usfirst.frc.team5449.robot;
 
 import command.IntakeClose;
-import command.IntakeIn;
+//import command.IntakeIn;
 import command.IntakeOpen;
-import command.IntakeOut;
+//import command.IntakeOut;
+import command.LifterStop;
 import command.LifterToDown;
 import command.LifterToMid;
 import command.LifterToMid2;
@@ -31,15 +32,17 @@ public class OI {
 	//Buttons
 	public JoystickButton button0 = new JoystickButton(stick0,5);
 	public JoystickButton button1 = new JoystickButton(stick0,3);
-	public JoystickButton Climber_btn = new JoystickButton(stick1,7);
+	public JoystickButton Climber_btn = new JoystickButton(stick0,7);
 	
 	public JoystickButton Lifter_UP = new JoystickButton(stick1,7);
 	public JoystickButton Lifter_MID2 = new JoystickButton(stick1,8);
 	public JoystickButton Lifter_MID = new JoystickButton(stick1,10);
 	public JoystickButton Lifter_DOWN = new JoystickButton(stick1,12);
+	public JoystickButton Lifter_STOP = new JoystickButton(stick1, 5);
 	
 	public JoystickButton Intake_out = new JoystickButton(stick1,5);
 	public JoystickButton Intake_in = new JoystickButton(stick1,3);
+	public JoystickButton EmergencyBrake = new JoystickButton(stick0,4);
 	//public 
 	
 	public OI() {
@@ -49,9 +52,10 @@ public class OI {
 		Lifter_MID2.whenPressed(new LifterToMid2());
 		Lifter_MID.whenPressed(new LifterToMid());
 		Lifter_DOWN.whenPressed(new LifterToDown());
+		Lifter_STOP.whenPressed(new LifterStop());
+		//Intake_out.whenPressed(new IntakeOut());
+		//Intake_in.whenPressed(new IntakeIn());
 		
-		Intake_out.whenPressed(new IntakeOut());
-		Intake_in.whenPressed(new IntakeIn());
 		//examplebutton.whenPressed(new command());
 	}
 	

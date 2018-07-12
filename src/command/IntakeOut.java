@@ -1,11 +1,11 @@
-package command;
+/*package command;
 
 import org.usfirst.frc.team5449.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
- */
+ 
 public class IntakeOut extends Command {
 
     public IntakeOut() {
@@ -40,4 +40,4 @@ public class IntakeOut extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
-}
+}*/

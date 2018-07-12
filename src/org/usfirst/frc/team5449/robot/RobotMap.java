@@ -44,7 +44,7 @@ public class RobotMap {
 	
 //Pneumatics
 	//PCM module
-	public static final int PCM_PORT = 16;
+	//public static final int PCM_PORT = 16;
 	//Intake solenoids 
 	public static final int INTAKE_LEFT_SOLENOID_PORT = 0;
 	public static final int INTAKE_RIGHT_SOLENOID_PORT = 1;
@@ -108,7 +108,7 @@ public class RobotMap {
 	public static final double CLIMBER_POWER = 1.000;
 	
 	public static final double FLIP_KP = 0.012;
-	public static final double FLIP_KD = 0.0011; 
+	public static final double FLIP_KD = 0.0011;
 	public static final double FLIP_BALANCE_KP = 0.011;
 	public static final double FLIP_BALANCE_KD = 0;
 	public static final double FLIP_BACK_POSE = 0;
@@ -120,6 +120,7 @@ public class RobotMap {
 	public static final double PF_EXPELL_CONSTANT = 1.000;
 	public static final double PF_EXPELL_RANGE = 1.000; //unit: meter
 	public static final double PF_ATTRACT_CONSTANT = 2.000;
+	public static final int PCM_PORT = 16;
 	
 		
 }

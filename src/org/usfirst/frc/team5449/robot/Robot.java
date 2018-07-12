@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team5449.robot;
 
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -37,12 +38,12 @@ public class Robot extends TimedRobot {
 	private static Timer timer = new Timer();
 	private static Encoder lifter_encoder = new Encoder(RobotMap.LIFTER_ENCODER_A,RobotMap.LIFTER_ENCODER_B);
 	private static Encoder flip_encoder = new Encoder(RobotMap.FLIP_ENCODER_A,RobotMap.FLIP_ENCODER_B);
-	
+
 	public static Lifter lifter = new Lifter();
 	public static Climber climber = new Climber();
 	public static Flip flip = new Flip();
 	public static Holder holder = new Holder();
-	
+	public static ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 	//public static Encoder_Module e1;
 	
 	public static boolean[] Game_data = {false,false,false};
@@ -59,6 +60,8 @@ public class Robot extends TimedRobot {
 		timer.reset();
 		timer.start();
 		lifter.ResetEncoders();
+		gyro.calibrate();
+		gyro.reset();
 		
 		Scheduler.getInstance().removeAll();
 		//flip.ResetEncoders();
@@ -123,6 +126,8 @@ public class Robot extends TimedRobot {
 		
 		lifter_encoder.reset();
 		flip_encoder.reset();
+		
+		gyro.reset();
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
@@ -133,7 +138,7 @@ public class Robot extends TimedRobot {
 		Robot.Game_data[0] = gamedata.charAt(0) == 'R';
 		Robot.Game_data[1] = gamedata.charAt(1) == 'R';
 		Robot.Game_data[2] = gamedata.charAt(2) == 'R';
-		
+
 		this.chassis.reset();
 
 	}
@@ -150,6 +155,7 @@ public class Robot extends TimedRobot {
 		
 		SmartDashboard.putNumber("lifter_encoder_angle", lifter_encoder.get());
 		SmartDashboard.putNumber("flip_encoder_angle", flip_encoder.get());
+		SmartDashboard.putNumber("gyro_angle", gyro.getAngle());
 		
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
