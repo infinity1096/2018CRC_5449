@@ -43,9 +43,14 @@ public class Chassis extends Subsystem {
 		RightMotorA.setInverted(true);
     	RightMotorB.setInverted(true);
     	RightMotorC.setInverted(true);
+    	
+    	encoder_l = new Encoder(RobotMap.CHASSIS_ENCODER_LEFT_PORT_A,RobotMap.CHASSIS_ENCODER_LEFT_PORT_B);
+    	encoder_r = new Encoder(RobotMap.CHASSIS_ENCODER_RIGHT_PORT_A,RobotMap.CHASSIS_ENCODER_RIGHT_PORT_B);
+    	encoder_l.setReverseDirection(true);
+    	
     	TargetHeading = 0;
     	is_target_set = false;
-    	//reset();
+    	reset();
     	
 	}
 	public void tankStyle(double leftInput, double rightInput){
