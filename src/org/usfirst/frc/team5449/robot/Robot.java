@@ -18,11 +18,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import sensors.Encoder_Module;
 
-import command.CompressorOff;
-import command.CompressorOn;
 import org.usfirst.frc.team5449.robot.subsystems.Chassis;
 import org.usfirst.frc.team5449.robot.subsystems.Climber;
-import org.usfirst.frc.team5449.robot.subsystems.Flip;
 import org.usfirst.frc.team5449.robot.subsystems.Holder;
 import org.usfirst.frc.team5449.robot.subsystems.Intake;
 import org.usfirst.frc.team5449.robot.subsystems.Lifter;
@@ -36,37 +33,22 @@ import org.usfirst.frc.team5449.robot.subsystems.Lifter;
 public class Robot extends TimedRobot {
 	public static Chassis chassis = new Chassis();
 	public static Intake intake = new Intake();
-	private static Timer timer = new Timer();
 	public static Encoder lifter_encoder = new Encoder(RobotMap.LIFTER_ENCODER_A,RobotMap.LIFTER_ENCODER_B);
 	public static Encoder flip_encoder = new Encoder(RobotMap.FLIP_ENCODER_A,RobotMap.FLIP_ENCODER_B);
 	public static Lifter lifter = new Lifter();
 	public static Climber climber = new Climber();
-	public static Flip flip = new Flip();
-	//public static Holder holder = new Holder();
 	public static ADXRS450_Gyro gyro = new ADXRS450_Gyro();
-	//public static Encoder_Module e1;
 	public static OI oi = new OI();
 	public static boolean[] Game_data = {false,false,false};
     
-	Command m_autonomousCommand;
-	SendableChooser<Command> m_chooser = new SendableChooser<>();
-	
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
 	@Override
 	public void robotInit() {
-		timer.reset();
-		timer.start();
-		lifter.ResetEncoders();
-		gyro.calibrate();
-		gyro.reset();
-		
+		lifter.ResetEncoders();	
 		Scheduler.getInstance().removeAll();
-		//flip.ResetEncoders();
-		
-		
 		}
 
 	/**
@@ -97,19 +79,6 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		m_autonomousCommand = m_chooser.getSelected();
-
-		/*
-		 * String autoSelected = SmartDashboard.getString("Auto Selector",
-		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
-		 * = new MyAutoCommand(); break; case "Default Auto": default:
-		 * autonomousCommand = new ExampleCommand(); break; }
-		 */
-
-		// schedule the autonomous command (example)
-		if (m_autonomousCommand != null) {
-			m_autonomousCommand.start();
-		}
 	}
 
 	/**
@@ -126,8 +95,6 @@ public class Robot extends TimedRobot {
 		
 		lifter_encoder.reset();
 		flip_encoder.reset();
-		gyro.calibrate();
-		gyro.reset();
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
@@ -148,21 +115,11 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
+		
+		
+		this.chassis.ChangeGearRatio(this.oi.testbutton.get());
+		
 		Scheduler.getInstance().run();
-		//ONLY FOR TESTING
-		SmartDashboard.putNumber("enc_larm",Robot.lifter.get_position2()[0]);
-		SmartDashboard.putNumber("enc_rarm",Robot.lifter.get_position2()[1]);
-		
-		SmartDashboard.putNumber("lifter_encoder_angle", lifter_encoder.get());
-		SmartDashboard.putNumber("flip_encoder_angle", flip_encoder.get());
-		SmartDashboard.putNumber("gyro_angle", gyro.getAngle());
-		
-		SmartDashboard.putData(new CompressorOn());
-		SmartDashboard.putData(new CompressorOff());
-		  
-		if (m_autonomousCommand != null) {
-			m_autonomousCommand.cancel();
-		}
 	}
 	
 

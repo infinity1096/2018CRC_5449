@@ -10,7 +10,7 @@ public class CompressorOff extends Command{
 			
 		}
 			protected void initialize() {
-				Robot.intake.CompressorOff();
+				Robot.intake.compressor.stop();;
 		    }
 
 		    // Called repeatedly when this Command is scheduled to run

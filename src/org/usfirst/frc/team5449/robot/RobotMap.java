@@ -3,25 +3,6 @@ package org.usfirst.frc.team5449.robot;
 public class RobotMap {
 //TalonSRXs
 	//chassis motors
-	/*
-	public static final int LEFT_FRONT_MOTOR_PORT = 3;
-	public static final int LEFT_MID_MOTOR_PORT = 2;
-	public static final int LEFT_REAR_MOTOR_PORT = 1;
-	public static final int RIGHT_FRONT_MOTOR_PORT = 10;
-	public static final int RIGHT_MID_MOTOR_PORT = 9;
-	public static final int RIGHT_REAR_MOTOR_PORT = 8;
-	//Intake motors
-	public static final int LEFT_INTAKE_PORT = 6;
-	public static final int RIGHT_INTAKE_PORT = 13;
-	public static final int MID_INTAKE_PORT = 7;
-	//Lifter Motors
-	public static final int LIFTER_LEFT_MOTOR_PORT = 4;
-	public static final int LIFTER_RIGHT_MOTOR_PORT = 11;
-	//climber motors
-	public static final int CLIMBER_MOTOR_1_PORT = 5;
-	public static final int CLIMBER_MOTOR_2_PORT = 12;
-	*/
-	
 	public static final int LEFT_FRONT_MOTOR_PORT = 7;
 	public static final int LEFT_MID_MOTOR_PORT = 6;
 	public static final int LEFT_REAR_MOTOR_PORT = 8;
@@ -29,14 +10,11 @@ public class RobotMap {
 	public static final int RIGHT_MID_MOTOR_PORT = 5;
 	public static final int RIGHT_REAR_MOTOR_PORT = 1;
 	//Intake motors
-	public static final int LEFT_INTAKE_PORT = 10;
-	public static final int RIGHT_INTAKE_PORT = 9;
-	public static final int FLIP_PORT = 2;
-	//Lifter Motors
-	//public static final int LIFTER_LEFT_MOTOR_PORT = 4;
-	//public static final int LIFTER_RIGHT_MOTOR_PORT = 11;
+	public static final int INTAKE_LEFT_MOTOR_PORT = 10;
+	public static final int INTAKE_RIGHT_MOTOR_PORT = 9;
+	public static final int INTAKE_MOTOR_PORT = 2;
 	
-	//climber motors
+	//Lifter motors
 	public static final int CLIMBER_LEFT_FRONT_MOTOR_PORT = 11;
 	public static final int CLIMBER_LEFT_REAR_MOTOR_PORT = 12;
 	public static final int CLIMBER_RIGHT_FRONT_MOTOR_PORT = 3;
@@ -44,16 +22,15 @@ public class RobotMap {
 	
 //Pneumatics
 	//PCM module
-	//public static final int PCM_PORT = 16;
-	//Intake solenoids 
-	//public static final int INTAKE_LEFT_SOLENOID_PORT = 0;
+	public static final int PCM_PORT = 16;
+	//Solenoids 
+	public static final int CHASSIS_CLUTCH_SLOENOID_PORT = 2;
+	public static final int INTAKE_CYLINDER_PORT = 1;
+	
 	//public static final int INTAKE_RIGHT_SOLENOID_PORT = 1;
-	//Holder
 	//public static final int HOLDER_BLOCK_PUSHER1_PORT = 2;
 	//public static final int HOLDER_BLOCK_PUSHER2_PORT = 3;
 //Sensors
-	//gyro
-	public static final int GYRO_PORT = 1;
 	//proximity switches
 	//IR Sensors
 	//public static final int HOLDER_IR_PORT = 0;
@@ -123,8 +100,7 @@ public class RobotMap {
 	
 	
 	
-	
-	public static final int PCM_PORT = 16;
+
 	
 		
 }
