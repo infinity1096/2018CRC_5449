@@ -6,10 +6,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
+public class IntakeStop extends Command {
 
-public class IntakeOut extends Command {
-
-    public IntakeOut() {
+    public IntakeStop() {
     	// Use requires() here to declare subsystem dependencies
         requires(Robot.intake);
     }
@@ -17,9 +16,7 @@ public class IntakeOut extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	//TODO set whatever (idk)
-    	Robot.intake.In2();//Motor
-    	Robot.intake.Open();//Cylinder
-    	//Robot.intake.MidStop();
+    	Robot.intake.Stop();//Motor
     }
 
     // Called repeatedly when this Command is scheduled to run

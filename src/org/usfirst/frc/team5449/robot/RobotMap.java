@@ -40,7 +40,7 @@ public class RobotMap {
 	public static final int CLIMBER_LEFT_FRONT_MOTOR_PORT = 11;
 	public static final int CLIMBER_LEFT_REAR_MOTOR_PORT = 12;
 	public static final int CLIMBER_RIGHT_FRONT_MOTOR_PORT = 3;
-	public static final int CLIMBER_RIGHT_REAR_MOTOR_PORT = 0;
+	public static final int CLIMBER_RIGHT_REAR_MOTOR_PORT = 13;
 	
 //Pneumatics
 	//PCM module
@@ -120,6 +120,10 @@ public class RobotMap {
 	public static final double PF_EXPELL_CONSTANT = 1.000;
 	public static final double PF_EXPELL_RANGE = 1.000; //unit: meter
 	public static final double PF_ATTRACT_CONSTANT = 2.000;
+	
+	
+	
+	
 	//public static final int PCM_PORT = 16;
 	
 		

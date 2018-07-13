@@ -18,6 +18,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import sensors.Encoder_Module;
 
+import command.CompressorOff;
+import command.CompressorOn;
 import org.usfirst.frc.team5449.robot.subsystems.Chassis;
 import org.usfirst.frc.team5449.robot.subsystems.Climber;
 import org.usfirst.frc.team5449.robot.subsystems.Flip;
@@ -34,18 +36,16 @@ import org.usfirst.frc.team5449.robot.subsystems.Lifter;
 public class Robot extends TimedRobot {
 	public static Chassis chassis = new Chassis();
 	public static Intake intake = new Intake();
-	public static OI oi = new OI();
 	private static Timer timer = new Timer();
 	public static Encoder lifter_encoder = new Encoder(RobotMap.LIFTER_ENCODER_A,RobotMap.LIFTER_ENCODER_B);
 	public static Encoder flip_encoder = new Encoder(RobotMap.FLIP_ENCODER_A,RobotMap.FLIP_ENCODER_B);
-
 	public static Lifter lifter = new Lifter();
 	public static Climber climber = new Climber();
 	public static Flip flip = new Flip();
 	//public static Holder holder = new Holder();
 	public static ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 	//public static Encoder_Module e1;
-	
+	public static OI oi = new OI();
 	public static boolean[] Game_data = {false,false,false};
     
 	Command m_autonomousCommand;
@@ -157,6 +157,9 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("flip_encoder_angle", flip_encoder.get());
 		SmartDashboard.putNumber("gyro_angle", gyro.getAngle());
 		
+		SmartDashboard.putData(new CompressorOn());
+		SmartDashboard.putData(new CompressorOff());
+		  
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
 		}

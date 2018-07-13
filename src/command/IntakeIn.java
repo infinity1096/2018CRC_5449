@@ -1,4 +1,4 @@
-/*package command;
+package command;
 
 import org.usfirst.frc.team5449.robot.Robot;
 
@@ -59,4 +59,4 @@ public class IntakeIn extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
-}*/
+}

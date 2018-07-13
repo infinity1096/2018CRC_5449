@@ -26,4 +26,5 @@ public class VariablesToBeDetermined {
 	public static final double CBCore_loadFRCfield_Obstacle_Width = 3.89;
 	public static final double CBCore_loadFRCfield_Coordinate_X = 4.11;
 	public static final double CBCore_loadFRCfield_Coordinate_Y = 4.26;
+	public static final double DISTANCE_1 = 20;//distance from starting place to scale
 }

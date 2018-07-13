@@ -22,7 +22,7 @@ public class LifterToUp extends Command {
 	
     public LifterToUp() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.lifter);
+        //requires(Robot.lifter);
     }
 
     // Called just before this Command runs the first time

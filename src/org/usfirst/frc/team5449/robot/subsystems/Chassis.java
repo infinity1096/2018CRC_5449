@@ -154,6 +154,13 @@ public class Chassis extends Subsystem {
         setDefaultCommand(new Move());
     }
     
+    public double[] get(){
+		double[] val = {0,0};
+		val[0] = this.encoder_l.get();
+		val[1] = this.encoder_r.get();
+		return val;
+	}
+    
     public void reset(){
     	this.encoder_l.reset();
     	this.encoder_r.reset();
