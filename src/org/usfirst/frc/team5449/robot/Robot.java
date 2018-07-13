@@ -36,13 +36,13 @@ public class Robot extends TimedRobot {
 	public static Intake intake = new Intake();
 	public static OI oi = new OI();
 	private static Timer timer = new Timer();
-	private static Encoder lifter_encoder = new Encoder(RobotMap.LIFTER_ENCODER_A,RobotMap.LIFTER_ENCODER_B);
-	private static Encoder flip_encoder = new Encoder(RobotMap.FLIP_ENCODER_A,RobotMap.FLIP_ENCODER_B);
+	public static Encoder lifter_encoder = new Encoder(RobotMap.LIFTER_ENCODER_A,RobotMap.LIFTER_ENCODER_B);
+	public static Encoder flip_encoder = new Encoder(RobotMap.FLIP_ENCODER_A,RobotMap.FLIP_ENCODER_B);
 
 	public static Lifter lifter = new Lifter();
 	public static Climber climber = new Climber();
 	public static Flip flip = new Flip();
-	public static Holder holder = new Holder();
+	//public static Holder holder = new Holder();
 	public static ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 	//public static Encoder_Module e1;
 	
@@ -126,7 +126,7 @@ public class Robot extends TimedRobot {
 		
 		lifter_encoder.reset();
 		flip_encoder.reset();
-		
+		gyro.calibrate();
 		gyro.reset();
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to

@@ -1,5 +1,6 @@
 package org.usfirst.frc.team5449.robot.subsystems;
 
+import org.usfirst.frc.team5449.robot.Robot;
 import org.usfirst.frc.team5449.robot.RobotMap;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -13,14 +14,14 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Flip extends Subsystem{
     TalonSRX FlipMotor;
     
-    private Encoder flip_encoder;
+    //private Encoder flip_encoder;
     private double power;
     private int current_status = 0;//0 for front, 1 for mid, 2 for back
     
 	public Flip() {
 		FlipMotor = new TalonSRX(RobotMap.FLIP_PORT);
 		
-		flip_encoder = new Encoder(RobotMap.FLIP_ENCODER_A,RobotMap.FLIP_ENCODER_B);
+		//flip_encoder = new Encoder(RobotMap.FLIP_ENCODER_A,RobotMap.FLIP_ENCODER_B);
 		
 		
 	}
@@ -37,12 +38,12 @@ public class Flip extends Subsystem{
 	}
 	
 	public int get_position_flip(){
-		int val = flip_encoder.get();
+		int val = Robot.flip_encoder.get();
 		return val;
 	}
 
 	public int[] get_position_flip2(){
-		int[] val = {flip_encoder.get()};
+		int[] val = {Robot.flip_encoder.get()};
 		return val;
 	}
 	

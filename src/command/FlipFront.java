@@ -46,7 +46,7 @@ public class FlipFront extends Command{
 	    	error[0] = RobotMap.FLIP_FRONT_POSE - Robot.flip.get_position_flip();
 	    	P_output = error[0] * Kp;
 	    	dt = timer.get() - last_time;
-	    	D_output = Kd * (error[0] - error[1])/dt;
+	    	D_output = Kd * (error[0] - error[1]);
 	    	
 	    	last_time = timer.get();
 	    	output = P_output + D_output;

@@ -46,17 +46,17 @@ public class RobotMap {
 	//PCM module
 	//public static final int PCM_PORT = 16;
 	//Intake solenoids 
-	public static final int INTAKE_LEFT_SOLENOID_PORT = 0;
-	public static final int INTAKE_RIGHT_SOLENOID_PORT = 1;
+	//public static final int INTAKE_LEFT_SOLENOID_PORT = 0;
+	//public static final int INTAKE_RIGHT_SOLENOID_PORT = 1;
 	//Holder
-	public static final int HOLDER_BLOCK_PUSHER1_PORT = 2;
-	public static final int HOLDER_BLOCK_PUSHER2_PORT = 3;
+	//public static final int HOLDER_BLOCK_PUSHER1_PORT = 2;
+	//public static final int HOLDER_BLOCK_PUSHER2_PORT = 3;
 //Sensors
 	//gyro
 	public static final int GYRO_PORT = 1;
 	//proximity switches
 	//IR Sensors
-	public static final int HOLDER_IR_PORT = 0;
+	//public static final int HOLDER_IR_PORT = 0;
 	//Encoders
 	//public static final int LIFTER_ENCODER_LEFT_PORT_A = 2;
 	//public static final int LIFTER_ENCODER_LEFT_PORT_B = 3;

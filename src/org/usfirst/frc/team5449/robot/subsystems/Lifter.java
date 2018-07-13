@@ -1,5 +1,6 @@
 package org.usfirst.frc.team5449.robot.subsystems;
 
+import org.usfirst.frc.team5449.robot.Robot;
 import org.usfirst.frc.team5449.robot.RobotMap;
 import org.usfirst.frc.team5449.robot.VariablesToBeDetermined;
 
@@ -13,7 +14,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Lifter extends Subsystem{
 	TalonSRX Liftmotor_LF,Liftmotor_LR,Liftmotor_RF,Liftmotor_RR;
 	private int current_status = 0;//0 for down,1 for mid,2 for up
-	private Encoder lifter_encoder;
+	//private Encoder lifter_encoder;
 	public Lifter(){
 		Liftmotor_LF = new TalonSRX(RobotMap.CLIMBER_LEFT_FRONT_MOTOR_PORT);
 		Liftmotor_LR = new TalonSRX(RobotMap.CLIMBER_LEFT_REAR_MOTOR_PORT);
@@ -22,7 +23,7 @@ public class Lifter extends Subsystem{
 		Liftmotor_RF.setInverted(true);
 		Liftmotor_RR.setInverted(true);
 		
-		lifter_encoder = new Encoder(RobotMap.LIFTER_ENCODER_A,RobotMap.LIFTER_ENCODER_B);
+		//lifter_encoder = new Encoder(RobotMap.LIFTER_ENCODER_A,RobotMap.LIFTER_ENCODER_B);
 	}
 	
 	//moves lifter
@@ -84,12 +85,12 @@ public class Lifter extends Subsystem{
 		return val;
 	}*/
 	public int get_position(){
-		int[] val = {lifter_encoder.get()};
+		int[] val = {Robot.lifter_encoder.get()};
 		return val[0];
 	}
 	
 	public int[] get_position2(){
-		int[] val = {lifter_encoder.get(),lifter_encoder.get()};
+		int[] val = {Robot.lifter_encoder.get(),Robot.lifter_encoder.get()};
 		return val;
 	}
 	
@@ -99,7 +100,7 @@ public class Lifter extends Subsystem{
 	}
 	
 	public void ResetEncoders(){
-		this.lifter_encoder.reset();
+		Robot.lifter_encoder.reset();
 	}
 	
 	

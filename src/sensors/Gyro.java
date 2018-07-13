@@ -5,17 +5,16 @@ import org.usfirst.frc.team5449.robot.Robot;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-public class Gyro extends Subsystem{
+public class Gyro{
 	private static double gyro_angle;
-	private static ADXRS450_Gyro gyro;
-	@Override
-	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
+
+	
+	public Gyro() {
 		
 	}
 	
 	public static double getAngle() {
-		gyro_angle = gyro.getAngle();
+		gyro_angle = Robot.gyro.getAngle();
 		return gyro_angle;
 		
 	}
@@ -23,6 +22,7 @@ public class Gyro extends Subsystem{
 	public void calibrate_gyro() {
 		Robot.gyro.calibrate();
 	}
+	
 	
 	
 }
