@@ -26,6 +26,13 @@ public class Intake extends Subsystem{
 		compressor = new Compressor(RobotMap.PCM_PORT);
 	}
 	
+	public void Close() {
+		
+	}
+	
+	public void In() {
+		
+	}
 	
 	@Override
 	protected void initDefaultCommand() {
