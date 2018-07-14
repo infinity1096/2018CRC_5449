@@ -65,6 +65,8 @@ public class Chassis extends Subsystem {
 	public void arcade_drive(double Power, double Rotate){
 		double leftPower,rightPower;
 		Rotate = deadzone(Rotate,0.12);
+		Power = deadzone(Power,0.10);
+		
 		Rotate /= 1.5;
 		leftPower = range(Power + Rotate,-1,1);
 		rightPower = range(Power - Rotate,-1,1);

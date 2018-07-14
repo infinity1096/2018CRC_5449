@@ -55,6 +55,12 @@ public class Intake extends Subsystem{
 		
 	}
 	
+	public void stop() {
+		LeftIntake.set(ControlMode.PercentOutput, 0);
+		RightIntake.set(ControlMode.PercentOutput, 0);
+		
+	}
+	
 	public void Out() {
 		LeftIntake.set(ControlMode.PercentOutput, -RobotMap.INTAKE_INTAKE_OUT_POEWR);
 		RightIntake.set(ControlMode.PercentOutput, -RobotMap.INTAKE_INTAKE_OUT_POEWR);

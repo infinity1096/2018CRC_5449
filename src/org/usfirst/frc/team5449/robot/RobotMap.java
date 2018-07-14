@@ -13,19 +13,19 @@ public class RobotMap {
 	public static final int INTAKE_LEFT_MOTOR_PORT = 2;
 	public static final int INTAKE_RIGHT_MOTOR_PORT = 10;
 	public static final int INTAKE_MOTOR_PORT = 9;
-	
 	//Lifter motors
 	public static final int LIFTER_MOTOR_1_PORT = 13;
 	public static final int LIFTER_MOTOR_2_PORT = 12;
 	public static final int LIFTER_MOTOR_3_PORT = 3;
 	public static final int LIFTER_MOTOR_4_PORT = 11;
-	
 //Pneumatics
 	//PCM module
 	public static final int PCM_PORT = 16;
 	//Solenoids 
 	public static final int CHASSIS_CLUTCH_SLOENOID_PORT = 2;
 	public static final int INTAKE_CYLINDER_PORT = 1;
+	public static final int LIFTER_LOCK_PORT = 0;
+	
 	
 	public static final int LIFTER_ENCODER_A = 8;
 	public static final int LIFTER_ENCODER_B = 9;
@@ -48,41 +48,31 @@ public class RobotMap {
 	public static final double CHASSIS_TURNING_D = 0.18;
 	public static final double CHASSIS_TURNING_ALLOWED_ERROR = 0.50;
 	//lifter
-	public static final long LIFTER_UP_POSE = 400;
-	public static final long LIFTER_MID2_POSE = 320;
-	public static final long LIFTER_MID_POSE = 150;
-	
+	public static final long LIFTER_UP_POSE = 0;
+	public static final long LIFTER_MID2_POSE = 0;
+	public static final long LIFTER_MID_POSE = 0;
 	public static final long LIFTER_DOWN_POSE = 0;
+	
 	public static final double LIFTER_MAXIMUM_PASSING_ERROR = 4;
+	
 	public static final double LIFTER_MAXIMUM_POWER = 0.9;
 	public static final double LIFTER_MINIMUM_POWER = 0.1;
+	
 	public static final double LIFTER_KP = 0.012;
 	public static final double LIFTER_KD = 0.0011;
-	public static final double LIFTER_BALANCE_KP = 0.011;
-	public static final double LIFTER_BALANCE_KD = 0;
-	//Holder
-	public static final double HOLDER_DELAY = 0.500;//sec
+	
+	public static final double INTAKE_HOLDER_DELAY = 0.500;//sec
 	//Climber
 	public static final double CLIMBER_POWER = 1.000;
 	
-	
+	//Flip
 	public static final double INTAKE_FLIP_KP = 0.016;
 	public static final double INTAKE_FLIP_KD = 0.12;
 	public static final double INTAKE_FLIP_KI = 0.004;
-	
-	
-	
 	public static final double INTAKE_FLIP_IN_POSE = 0;
 	public static final double INTAKE_FLIP_UP_POSE = 36;
-	public static final double INTAKE_FLIP_OUT_POSE = 72;
+	public static final double INTAKE_FLIP_OUT_POSE = 74;
 	public static final double INTAKE_FLIP_MAXIMUM_POWER = 0.9;
-	//public static final double FLIP_MINIMUM_POWER = 0;
-	//Potention field
-	public static final double PF_EXPELL_CONSTANT = 1.000;
-	public static final double PF_EXPELL_RANGE = 1.000; //unit: meter
-	public static final double PF_ATTRACT_CONSTANT = 2.000;
-	
-	
 	
 
 	

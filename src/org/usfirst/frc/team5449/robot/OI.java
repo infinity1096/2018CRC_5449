@@ -24,30 +24,21 @@ public class OI {
 	public Joystick stick0 = new Joystick(0);
 	public Joystick stick1 = new Joystick(1);
 	//Buttons
-	public JoystickButton button0 = new JoystickButton(stick0,6);
-	public JoystickButton button1 = new JoystickButton(stick0,3);
-	public JoystickButton Climber_btn = new JoystickButton(stick0,7);
 	
-	public JoystickButton Lifter_UP = new JoystickButton(stick1,7);
-	public JoystickButton Lifter_MID2 = new JoystickButton(stick1,8);
-	public JoystickButton Lifter_MID = new JoystickButton(stick1,10);
-	public JoystickButton Lifter_DOWN = new JoystickButton(stick1,12);
-	public JoystickButton Lifter_STOP = new JoystickButton(stick1, 5);
-	
-	public JoystickButton Intake_out = new JoystickButton(stick1,5);
-	public JoystickButton Intake_in = new JoystickButton(stick1,3);
-	public JoystickButton EmergencyBrake = new JoystickButton(stick0,4);
-	
+
 	public JoystickButton testbutton = new JoystickButton(stick1,1);
+	public JoystickButton testbutton2 = new JoystickButton(stick1,2);
+	public JoystickButton FlipOut = new JoystickButton(stick1,8);
+	public JoystickButton FlipUp = new JoystickButton(stick1,10);
+	public JoystickButton FlipIn = new JoystickButton(stick1,12);
 	
 	//public 
 	
 	public OI() {
-		Lifter_STOP.whenPressed(new LifterStop());
-		//Intake_out.whenPressed(new IntakeOut());
-		//Intake_in.whenPressed(new IntakeIn());
+		FlipOut.whenPressed(new command.FlipOut());
+		FlipUp.whenPressed(new command.FlipUp());
+		FlipIn.whenPressed(new command.FlipIn());
 		
-		//examplebutton.whenPressed(new command());
 	}
 	
 	

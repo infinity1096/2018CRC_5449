@@ -92,6 +92,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopInit() {
 		this.intake.reset();
+		this.lifter.ResetEncoders();
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
@@ -121,12 +122,32 @@ public class Robot extends TimedRobot {
     }
 	@Override
 	public void teleopPeriodic() {
+		this.lifter.UnLock();
+		if (oi.testbutton.get()) {
+			if (oi.testbutton2.get()) {
+				
+			}else {
+				this.intake.In();
+			}		
+		}else {
+			if (oi.testbutton2.get()) {
+				this.intake.Out();
+			}else {
+				this.intake.stop();
+			}
+		}
 		
+		this.lifter.move(-oi.stick0.getRawAxis(1));
+		SmartDashboard.putNumber("LIFTER POWER", -oi.stick0.getRawAxis(1));
+		
+		SmartDashboard.putData(new FlipOut());
 		SmartDashboard.putData(new FlipUp());
 		SmartDashboard.putData(new FlipIn());
-		SmartDashboard.putData(new FlipOut());
-		SmartDashboard.putNumber("Encoder_reading", this.intake.get());	
+	
 		
+		
+		SmartDashboard.putNumber("FLIP Encoder_reading", this.intake.get());	
+		SmartDashboard.putNumber("LIFTER Encoder_reading", this.lifter.getPosition());	
 		Scheduler.getInstance().run();
 	}
 	

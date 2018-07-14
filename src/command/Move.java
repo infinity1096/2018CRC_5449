@@ -22,7 +22,7 @@ public class Move extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    		Robot.chassis.arcade_drive(-Robot.oi.stick1.getRawAxis(1), Robot.oi.stick1.getRawAxis(2));	
+    		Robot.chassis.arcade_drive(-Robot.oi.stick1.getRawAxis(1)*0.5, Robot.oi.stick1.getRawAxis(2));	
     }
 
     // Make this return true when this Command no longer needs to run execute()
