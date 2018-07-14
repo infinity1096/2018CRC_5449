@@ -6,6 +6,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -18,30 +19,54 @@ public class Intake extends Subsystem{
 	private Solenoid IntakeCylinder;
 	public Compressor compressor;
 	
+	private Encoder FlipEncoder;
 	
 	public Intake() {
 		LeftIntake = new TalonSRX(RobotMap.INTAKE_LEFT_MOTOR_PORT);
 		RightIntake = new TalonSRX(RobotMap.INTAKE_RIGHT_MOTOR_PORT);
+		RightIntake.setInverted(true);
 		Flip = new TalonSRX(RobotMap.INTAKE_MOTOR_PORT);
+		Flip.setInverted(true);
 		IntakeCylinder = new Solenoid(RobotMap.PCM_PORT,RobotMap.INTAKE_CYLINDER_PORT);
 		compressor = new Compressor(RobotMap.PCM_PORT);
+		FlipEncoder = new Encoder(RobotMap.INTAKE_ENCODER_A,RobotMap.INTAKE_ENCODER_B);
+	}
+	
+	
+	public void reset() {
+		this.FlipEncoder.reset();
+	}
+	
+	public long get() {
+		return this.FlipEncoder.get();
 	}
 	
 	public void Close() {
-		
+		IntakeCylinder.set(false);
 	}
 	
 	public void Open() {
-		
+		IntakeCylinder.set(true);
 	}
 	
 	public void In() {
+		LeftIntake.set(ControlMode.PercentOutput, RobotMap.INTAKE_INTAKE_IN_POEWR);
+		RightIntake.set(ControlMode.PercentOutput, RobotMap.INTAKE_INTAKE_IN_POEWR);
 		
 	}
 	
 	public void Out() {
+		LeftIntake.set(ControlMode.PercentOutput, -RobotMap.INTAKE_INTAKE_OUT_POEWR);
+		RightIntake.set(ControlMode.PercentOutput, -RobotMap.INTAKE_INTAKE_OUT_POEWR);
 		
 	}
+	
+	public void HOLD() {
+		LeftIntake.set(ControlMode.PercentOutput, RobotMap.INTAKE_INTAKE_HOLD_POEWR);
+		RightIntake.set(ControlMode.PercentOutput, RobotMap.INTAKE_INTAKE_HOLD_POEWR);
+		
+	}
+	
 	
 	public void Move_flip(double power) {
 		Flip.set(ControlMode.PercentOutput, power);

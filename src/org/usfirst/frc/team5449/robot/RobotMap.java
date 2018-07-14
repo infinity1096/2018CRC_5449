@@ -10,15 +10,15 @@ public class RobotMap {
 	public static final int RIGHT_MID_MOTOR_PORT = 5;
 	public static final int RIGHT_REAR_MOTOR_PORT = 1;
 	//Intake motors
-	public static final int INTAKE_LEFT_MOTOR_PORT = 10;
-	public static final int INTAKE_RIGHT_MOTOR_PORT = 9;
-	public static final int INTAKE_MOTOR_PORT = 2;
+	public static final int INTAKE_LEFT_MOTOR_PORT = 2;
+	public static final int INTAKE_RIGHT_MOTOR_PORT = 10;
+	public static final int INTAKE_MOTOR_PORT = 9;
 	
 	//Lifter motors
-	public static final int CLIMBER_LEFT_FRONT_MOTOR_PORT = 11;
-	public static final int CLIMBER_LEFT_REAR_MOTOR_PORT = 12;
-	public static final int CLIMBER_RIGHT_FRONT_MOTOR_PORT = 3;
-	public static final int CLIMBER_RIGHT_REAR_MOTOR_PORT = 13;
+	public static final int LIFTER_MOTOR_1_PORT = 13;
+	public static final int LIFTER_MOTOR_2_PORT = 12;
+	public static final int LIFTER_MOTOR_3_PORT = 3;
+	public static final int LIFTER_MOTOR_4_PORT = 11;
 	
 //Pneumatics
 	//PCM module
@@ -27,38 +27,19 @@ public class RobotMap {
 	public static final int CHASSIS_CLUTCH_SLOENOID_PORT = 2;
 	public static final int INTAKE_CYLINDER_PORT = 1;
 	
-	//public static final int INTAKE_RIGHT_SOLENOID_PORT = 1;
-	//public static final int HOLDER_BLOCK_PUSHER1_PORT = 2;
-	//public static final int HOLDER_BLOCK_PUSHER2_PORT = 3;
-//Sensors
-	//proximity switches
-	//IR Sensors
-	//public static final int HOLDER_IR_PORT = 0;
-	//Encoders
-	//public static final int LIFTER_ENCODER_LEFT_PORT_A = 2;
-	//public static final int LIFTER_ENCODER_LEFT_PORT_B = 3;
-	//public static final int LIFTER_ENCODER_RIGHT_PORT_A = 4;
-	//public static final int LIFTER_ENCODER_RIGHT_PORT_B = 5;
-	//public static final int CHASSIS_ENCODER_LEFT_PORT_A = 6;
-	//public static final int CHASSIS_ENCODER_LEFT_PORT_B = 7;
-	//public static final int CHASSIS_ENCODER_RIGHT_PORT_A = 8;
-	//public static final int CHASSIS_ENCODER_RIGHT_PORT_B = 9;
-	public static final int LIFTER_ENCODER_A = 2;
-	public static final int LIFTER_ENCODER_B = 3;
+	public static final int LIFTER_ENCODER_A = 8;
+	public static final int LIFTER_ENCODER_B = 9;
 	public static final int CHASSIS_ENCODER_LEFT_PORT_A = 4;
 	public static final int CHASSIS_ENCODER_LEFT_PORT_B = 5;
 	public static final int CHASSIS_ENCODER_RIGHT_PORT_A = 6;
 	public static final int CHASSIS_ENCODER_RIGHT_PORT_B = 7;
-	public static final int FLIP_ENCODER_A = 8;
-	public static final int FLIP_ENCODER_B = 9;
-	/*public static final int EM_ENCODER_0_PORT_A = 10;
-	public static final int EM_ENCODER_0_PORT_B = 11;
-	public static final int EM_ENCODER_1_PORT_A = 12;
-	public static final int EM_ENCODER_1_PORT_B = 13;
-	public static final int EM_ENCODER_2_PORT_A = 14;
-	public static final int EM_ENCODER_2_PORT_B = 15;*/
+	public static final int INTAKE_ENCODER_A = 2;
+	public static final int INTAKE_ENCODER_B = 3;
 //Parameters
-	//Chassis TODO configure
+	//Chassis
+	public static final double INTAKE_INTAKE_IN_POEWR = 1.00;
+	public static final double INTAKE_INTAKE_OUT_POEWR = 1.00;
+	public static final double INTAKE_INTAKE_HOLD_POEWR = 0.2;
 	
 	
 	public static final double CHASSIS_TURNING_DEADZONE = 0.05;
@@ -84,15 +65,18 @@ public class RobotMap {
 	//Climber
 	public static final double CLIMBER_POWER = 1.000;
 	
-	public static final double FLIP_KP = 0.012;
-	public static final double FLIP_KD = 0.0011;
-	public static final double FLIP_BALANCE_KP = 0.011;
-	public static final double FLIP_BALANCE_KD = 0;
-	public static final double FLIP_BACK_POSE = 0;
-	public static final double FLIP_MID_POSE = 500;
-	public static final double FLIP_FRONT_POSE = 1000;
-	public static final double FLIP_MAXIMUM_POWER = 0.9;
-	public static final double FLIP_MINIMUM_POWER = 0.1;
+	
+	public static final double INTAKE_FLIP_KP = 0.016;
+	public static final double INTAKE_FLIP_KD = 0.12;
+	public static final double INTAKE_FLIP_KI = 0.004;
+	
+	
+	
+	public static final double INTAKE_FLIP_IN_POSE = 0;
+	public static final double INTAKE_FLIP_UP_POSE = 36;
+	public static final double INTAKE_FLIP_OUT_POSE = 72;
+	public static final double INTAKE_FLIP_MAXIMUM_POWER = 0.9;
+	//public static final double FLIP_MINIMUM_POWER = 0;
 	//Potention field
 	public static final double PF_EXPELL_CONSTANT = 1.000;
 	public static final double PF_EXPELL_RANGE = 1.000; //unit: meter

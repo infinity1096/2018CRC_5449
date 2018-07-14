@@ -19,10 +19,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import sensors.Encoder_Module;
 
 import org.usfirst.frc.team5449.robot.subsystems.Chassis;
-import org.usfirst.frc.team5449.robot.subsystems.Climber;
-import org.usfirst.frc.team5449.robot.subsystems.Holder;
 import org.usfirst.frc.team5449.robot.subsystems.Intake;
 import org.usfirst.frc.team5449.robot.subsystems.Lifter;
+
+import command.FlipIn;
+import command.FlipOut;
+import command.FlipUp;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -33,21 +35,18 @@ import org.usfirst.frc.team5449.robot.subsystems.Lifter;
 public class Robot extends TimedRobot {
 	public static Chassis chassis = new Chassis();
 	public static Intake intake = new Intake();
-	public static Encoder lifter_encoder = new Encoder(RobotMap.LIFTER_ENCODER_A,RobotMap.LIFTER_ENCODER_B);
-	public static Encoder flip_encoder = new Encoder(RobotMap.FLIP_ENCODER_A,RobotMap.FLIP_ENCODER_B);
 	public static Lifter lifter = new Lifter();
-	public static Climber climber = new Climber();
 	public static ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 	public static OI oi = new OI();
 	public static boolean[] Game_data = {false,false,false};
     
+	
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
 	@Override
 	public void robotInit() {
-		lifter.ResetEncoders();	
 		Scheduler.getInstance().removeAll();
 		}
 
@@ -92,9 +91,7 @@ public class Robot extends TimedRobot {
     //play hearthstone
 	@Override
 	public void teleopInit() {
-		
-		lifter_encoder.reset();
-		flip_encoder.reset();
+		this.intake.reset();
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
@@ -113,11 +110,22 @@ public class Robot extends TimedRobot {
 	/**
 	 * This function is called periodically during operator control.
 	 */
+	private double range(double val,double min,double max){
+    	if (val < min){
+    		return min;
+    	}else if (val > max){
+    		return max;
+    	}else{
+    		return val;
+    	}
+    }
 	@Override
 	public void teleopPeriodic() {
 		
-		
-		this.chassis.ChangeGearRatio(this.oi.testbutton.get());
+		SmartDashboard.putData(new FlipUp());
+		SmartDashboard.putData(new FlipIn());
+		SmartDashboard.putData(new FlipOut());
+		SmartDashboard.putNumber("Encoder_reading", this.intake.get());	
 		
 		Scheduler.getInstance().run();
 	}
