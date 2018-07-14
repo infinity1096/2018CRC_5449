@@ -2,6 +2,7 @@ package org.usfirst.frc.team5449.robot.subsystems;
 
 import org.usfirst.frc.team5449.robot.RobotMap;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.Compressor;
@@ -30,8 +31,24 @@ public class Intake extends Subsystem{
 		
 	}
 	
+	public void Open() {
+		
+	}
+	
 	public void In() {
 		
+	}
+	
+	public void Out() {
+		
+	}
+	
+	public void Move_flip(double power) {
+		Flip.set(ControlMode.PercentOutput, power);
+	}
+	
+	public void Stop_flip() {
+		Flip.set(ControlMode.PercentOutput, 0);
 	}
 	
 	@Override
@@ -39,6 +56,14 @@ public class Intake extends Subsystem{
 		// TODO Auto-generated method stub
 		
 	}
-
+	private double range(double val,double min,double max){
+    	if (val < min){
+    		return min;
+    	}else if (val > max){
+    		return max;
+    	}else{
+    		return val;
+    	}
+    }
 	
 }
