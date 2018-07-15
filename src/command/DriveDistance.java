@@ -2,6 +2,7 @@ package command;
 
 import org.usfirst.frc.team5449.robot.Robot;
 import org.usfirst.frc.team5449.robot.RobotMap;
+import org.usfirst.frc.team5449.robot.VariablesToBeDetermined;
 import org.usfirst.frc.team5449.robot.subsystems.Chassis;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
@@ -113,7 +114,7 @@ public class DriveDistance extends Command {
     
     /**cm*/
     private double calcDis(double encoderValue){
-    	return encoderValue * 0.0003090;
+    	return encoderValue * VariablesToBeDetermined.Calculate_Distance;
     }
     
     private double range2(double val,double min,double max){

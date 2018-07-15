@@ -7,7 +7,9 @@
 
 package org.usfirst.frc.team5449.robot;
 
+import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Sendable;
@@ -20,6 +22,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import sensors.Encoder_Module;
 import sensors.InfraRed;
 
+import org.usfirst.frc.team5449.robot.subsystems.Camera;
 import org.usfirst.frc.team5449.robot.subsystems.Chassis;
 import org.usfirst.frc.team5449.robot.subsystems.Intake;
 import org.usfirst.frc.team5449.robot.subsystems.Lifter;
@@ -35,14 +38,19 @@ import command.FlipUp;
  * project.
  */
 public class Robot extends TimedRobot {
+	//public static Camera camera = new Camera();
 	public static Chassis chassis = new Chassis();
 	public static Intake intake = new Intake();
 	public static Lifter lifter = new Lifter();
 	public static ADXRS450_Gyro gyro = new ADXRS450_Gyro();
+	public static Camera camera = new Camera();
 	public static OI oi = new OI();
 	public static InfraRed infrared = new InfraRed(RobotMap.INFRARED);
 	public static boolean[] Game_data = {false,false,false};
     public int a = 100;
+    
+    public static CameraServer server = CameraServer.getInstance();
+	public static UsbCamera c1 = new UsbCamera("USB Camera 0",0);
 	
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -51,6 +59,10 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		Scheduler.getInstance().removeAll();
+		server.startAutomaticCapture(c1);
+		c1.setResolution(960, 540);
+		c1.setFPS(24);
+		//camera.Camera();
 		}
 
 	/**
@@ -145,8 +157,8 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putData(new FlipOut());
 		SmartDashboard.putData(new FlipUp());
 		SmartDashboard.putData(new FlipIn());
-		final String string = "BlockIn?";
-	    SmartDashboard.putNumber(string,InfraRed.get());
+		//final String string = "BlockIn?";
+	    SmartDashboard.putNumber(/*string*/"Infrared",this.infrared.get());
 		SmartDashboard.putNumber("FLIP Encoder_reading", this.intake.get());	
 		SmartDashboard.putNumber("LIFTER Encoder_reading", this.lifter.getPosition());	
 		Scheduler.getInstance().run();

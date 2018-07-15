@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class LifterToMid extends Command {
+public class LifterToDown extends Command {
 
 	private double error[] = { 0, 0 };// {error,prev_error}
 	private double error_acc = 0;
@@ -23,11 +23,11 @@ public class LifterToMid extends Command {
 	private boolean is_down = false;
 	private double time = 9999;
 
-	public LifterToMid() {
+	public LifterToDown() {
 		requires(Robot.intake);
 	}
 
-	public LifterToMid(double time) {
+	public LifterToDown(double time) {
 		requires(Robot.intake);
 		this.time = time;
 	}
@@ -39,14 +39,14 @@ public class LifterToMid extends Command {
 		last_time = timer.get();
 		error_acc = 0;
 		error[0] = 0;
-		error[1] = RobotMap.LIFTER_MID_POSE - Robot.lifter.getPosition();
+		error[1] = RobotMap.LIFTER_DOWN_POSE - Robot.lifter.getPosition();
 		Robot.lifter.UnLock();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 		double P_output, dt, output,gravity_offset;
-		error[0] = RobotMap.LIFTER_MID2_POSE - Robot.lifter.getPosition();
+		error[0] = RobotMap.LIFTER_DOWN_POSE - Robot.lifter.getPosition();
 		SmartDashboard.putNumber("ERROR", error[0]);
 		P_output = error[0] * Kp;
 		dt = timer.get() - last_time;
@@ -80,12 +80,14 @@ public class LifterToMid extends Command {
 	// Called once after isFinished returns true
 	protected void end() {
 		Robot.lifter.stop();
+		Robot.lifter.Lock();
 	}
 
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	protected void interrupted() {
 		Robot.lifter.stop();
+
 	}
 
 	private double range(double val, double min, double max) {

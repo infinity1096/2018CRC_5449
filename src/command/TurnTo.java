@@ -35,7 +35,7 @@ public class TurnTo extends Command {
     	timer = new Timer();
     	timer.reset();
     	timer.start();
-    	lastTime = -0.02;
+    	lastTime = -0.02;   
     	currError = angleTarget - Gyro.getAngle();
     	if(currError>180){
     		currError -= 360;

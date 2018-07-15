@@ -40,6 +40,7 @@ public class LifterToMid2 extends Command {
 		error_acc = 0;
 		error[0] = 0;
 		error[1] = RobotMap.LIFTER_MID_POSE - Robot.lifter.getPosition();
+		Robot.lifter.UnLock();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
@@ -79,12 +80,14 @@ public class LifterToMid2 extends Command {
 	// Called once after isFinished returns true
 	protected void end() {
 		Robot.lifter.stop();
+		Robot.lifter.Lock();
 	}
 
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	protected void interrupted() {
 		Robot.lifter.stop();
+
 	}
 
 	private double range(double val, double min, double max) {

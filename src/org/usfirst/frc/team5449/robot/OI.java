@@ -8,6 +8,8 @@
 package org.usfirst.frc.team5449.robot;
 
 
+import org.usfirst.frc.team5449.robot.subsystems.Lifter;
+
 import command.LifterStop;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -32,6 +34,8 @@ public class OI {
 	public JoystickButton FlipUp = new JoystickButton(stick1,10);
 	public JoystickButton FlipIn = new JoystickButton(stick1,12); 
 	public JoystickButton LifterToMid = new JoystickButton(stick1,3);
+	public JoystickButton Lock = new JoystickButton(stick1,6);
+    public JoystickButton Unlock = new JoystickButton(stick1,4);
 	
 	//public 
 	
@@ -40,6 +44,8 @@ public class OI {
 		FlipUp.whenPressed(new command.FlipUp());
 		FlipIn.whenPressed(new command.FlipIn());
 		LifterToMid.whenPressed(new command.LifterToMid());
+		Lock.whenPressed(new command.Lock());
+		Unlock.whenPressed(new command.Unlock());
 	}
 	
 	
