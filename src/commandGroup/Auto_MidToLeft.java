@@ -16,13 +16,17 @@ import command.TurnTo;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
   
-public class Auto_LeftToLeft extends CommandGroup{
-	public Auto_LeftToLeft() {
+public class Auto_MidToLeft extends CommandGroup{
+	public Auto_MidToLeft() {
 		addSequential(new LifterBump());
-		addParallel(new LifterToUp());
-		addSequential(new DriveDistance(727));
-		addSequential(new TurnTo(-90));
+		addSequential(new DriveDistance(50));
+		addSequential(new TurnTo(-45));
+		addSequential(new DriveDistance(415.7788));
+		//addSequential(new TurnTo(-90));
+		addSequential(new TurnTo(0));
+		addSequential(new DriveDistance(383));
 		addParallel(new FlipIn());
+		addSequential(new LifterToUp());
 	    addSequential(new IntakeOut());
 	    addParallel(new LifterToDown());
 		//addSequential(new TurnTo(132.337));

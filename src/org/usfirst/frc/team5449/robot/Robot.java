@@ -107,6 +107,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopInit() {
 		this.intake.reset();
+		
 		this.lifter.ResetEncoders();
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
@@ -154,6 +155,7 @@ public class Robot extends TimedRobot {
 		this.lifter.move(-oi.stick0.getRawAxis(1));
 		SmartDashboard.putNumber("LIFTER POWER", -oi.stick0.getRawAxis(1));
 		
+		
 		SmartDashboard.putData(new FlipOut());
 		SmartDashboard.putData(new FlipUp());
 		SmartDashboard.putData(new FlipIn());
@@ -161,6 +163,8 @@ public class Robot extends TimedRobot {
 	    SmartDashboard.putNumber(/*string*/"Infrared",this.infrared.get());
 		SmartDashboard.putNumber("FLIP Encoder_reading", this.intake.get());	
 		SmartDashboard.putNumber("LIFTER Encoder_reading", this.lifter.getPosition());	
+		SmartDashboard.putNumber("CHASSIS RIGHT Encoder_reading",this.chassis.get()[0]);
+		SmartDashboard.putNumber("CHASSIS LEFT Encoder_reading",this.chassis.get()[1]);
 		Scheduler.getInstance().run();
 	}
 	/**
