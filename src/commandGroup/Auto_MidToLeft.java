@@ -31,6 +31,7 @@ public class Auto_MidToLeft extends CommandGroup{
 	    addParallel(new LifterToDown());
 		//addSequential(new TurnTo(132.337));
 	    addSequential(new TurnTo(42.337));
+	    
 	    addSequential(new DriveDistance(334.8231));
 	    //addParallel(new TurnTo(-42.337));
 	    addParallel(new TurnTo(0));

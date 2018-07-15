@@ -21,6 +21,7 @@ public class Auto_LeftToLeft extends CommandGroup{
 		addSequential(new LifterBump());
 		addParallel(new LifterToUp());
 		addSequential(new DriveDistance(727));
+		
 		addSequential(new TurnTo(-90));
 		addParallel(new FlipIn());
 	    addSequential(new IntakeOut());
