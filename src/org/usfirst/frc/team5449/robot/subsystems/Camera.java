@@ -13,15 +13,15 @@ public class Camera extends Subsystem {
 	//public UsbCamera CameraFront = new UsbCamera("FrontCam", 0);
     //private MjpegServer Server = new MjpegServer("CameraServer", 5449);//config the port number in DS?
     //private MjpegServer VisionServer = new MjpegServer("VisionProcessingServer", 1111);//config the port number in DS?
-	UsbCamera c1 = new UsbCamera("cam0",1);
-    CameraServer server = CameraServer.getInstance();
+	//UsbCamera c1 = new UsbCamera("cam0",0);
+    //CameraServer server = CameraServer.getInstance();
     
     public Camera(){
 
-    	c1.setResolution(1280,720);
-    	c1.setFPS(30);
+    	//c1.setResolution(1280,720);
+    	//c1.setFPS(30);
     	//CameraServer.getInstance().startAutomaticCapture();
-    	server.startAutomaticCapture(c1);
+    	//server.startAutomaticCapture(c1);
 	   //set camera
 	  // CameraFront.setResolution(800, 600);
 	  // CameraFront.setFPS(24); 

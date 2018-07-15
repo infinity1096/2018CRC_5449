@@ -14,10 +14,10 @@ public class RobotMap {
 	public static final int INTAKE_RIGHT_MOTOR_PORT = 10;
 	public static final int INTAKE_MOTOR_PORT = 9;
 	//Lifter motors
-	public static final int LIFTER_MOTOR_1_PORT = 13;
-	public static final int LIFTER_MOTOR_2_PORT = 12;
-	public static final int LIFTER_MOTOR_3_PORT = 3;
-	public static final int LIFTER_MOTOR_4_PORT = 11;
+	public static final int LIFTER_MOTOR_RIGHTBACK_PORT = 13;//1
+	public static final int LIFTER_MOTOR_LEFTBACK_PORT = 12;// 2
+	public static final int LIFTER_MOTOR_RIGHTFRONT_PORT = 3;//3
+	public static final int LIFTER_MOTOR_LEFTFRONT_PORT = 11;//4
 //Pneumatics
 	//PCM module
 	public static final int PCM_PORT = 16;

@@ -13,18 +13,18 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Lifter extends Subsystem{
-	TalonSRX Liftmotor_1,Liftmotor_2,Liftmotor_3,Liftmotor_4;
+	TalonSRX Liftmotor_rightback,Liftmotor_leftback,Liftmotor_leftfront,Liftmotor_rightfront;
 	public Solenoid lock;
 	private int current_status = 0;//0 for down,1 for mid,2 for up
 	private Encoder encoder;
 	//private Encoder lifter_encoder;
 	public Lifter(){
-		Liftmotor_1 = new TalonSRX(RobotMap.LIFTER_MOTOR_1_PORT);
-		//Liftmotor_2 = new TalonSRX(RobotMap.LIFTER_MOTOR_2_PORT);
-		//Liftmotor_3 = new TalonSRX(RobotMap.LIFTER_MOTOR_3_PORT);
-		//Liftmotor_4 = new TalonSRX(RobotMap.LIFTER_MOTOR_4_PORT);
-		Liftmotor_1.setInverted(true);
-		// Liftmotor_2.setInverted(true);
+		Liftmotor_leftback = new TalonSRX(RobotMap.LIFTER_MOTOR_LEFTBACK_PORT);
+		Liftmotor_rightback = new TalonSRX(RobotMap.LIFTER_MOTOR_RIGHTBACK_PORT);
+		Liftmotor_leftfront = new TalonSRX(RobotMap.LIFTER_MOTOR_LEFTFRONT_PORT);
+		Liftmotor_rightfront = new TalonSRX(RobotMap.LIFTER_MOTOR_RIGHTFRONT_PORT);
+		Liftmotor_rightback.setInverted(true);
+		Liftmotor_leftback.setInverted(true);
 		lock = new Solenoid(RobotMap.PCM_PORT,RobotMap.LIFTER_LOCK_PORT);
 		encoder = new Encoder(RobotMap.LIFTER_ENCODER_A,RobotMap.LIFTER_ENCODER_B);
 		encoder.setReverseDirection(true);
@@ -32,10 +32,10 @@ public class Lifter extends Subsystem{
 	
 	//moves lifter
 	 public void move(double Power){
-		Liftmotor_1.set(ControlMode.PercentOutput,Power);
-		//Liftmotor_2.set(ControlMode.PercentOutput,Power);
-		//Liftmotor_3.set(ControlMode.PercentOutput,Power);
-		//Liftmotor_4.set(ControlMode.PercentOutput,Power);
+		Liftmotor_leftfront.set(ControlMode.PercentOutput,Power);
+		Liftmotor_rightfront.set(ControlMode.PercentOutput,Power);
+		Liftmotor_leftback.set(ControlMode.PercentOutput,Power);
+		Liftmotor_rightback.set(ControlMode.PercentOutput,Power);
 	}
 	
 	 private double range(double val,double min,double max){
@@ -49,10 +49,10 @@ public class Lifter extends Subsystem{
 	    } 
 	 
 	public void stop(){
-		Liftmotor_1.set(ControlMode.PercentOutput,0);
-		//Liftmotor_2.set(ControlMode.PercentOutput,0);
-		//Liftmotor_3.set(ControlMode.PercentOutput,0);
-		//Liftmotor_4.set(ControlMode.PercentOutput,0);
+		Liftmotor_rightback.set(ControlMode.PercentOutput,0);
+		Liftmotor_leftback.set(ControlMode.PercentOutput,0);
+		Liftmotor_rightfront.set(ControlMode.PercentOutput,0);
+		Liftmotor_leftfront.set(ControlMode.PercentOutput,0);
 	}
 	
 	//change status

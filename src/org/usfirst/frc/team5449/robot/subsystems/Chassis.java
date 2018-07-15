@@ -64,12 +64,12 @@ public class Chassis extends Subsystem {
 	
 	public void arcade_drive(double Power, double Rotate){
 		double leftPower,rightPower;
-		Rotate = deadzone(Rotate,0.12);
-		Power = deadzone(Power,0.10);
+		Rotate = deadzone(Rotate,0.9);
+		Power = deadzone(Power,0.9);
 		
 		Rotate /= 1.5;
-		leftPower = range(Power + Rotate,-1,1);
-		rightPower = range(Power - Rotate,-1,1);
+		leftPower = range(Power + Rotate,-0.35,0.35)*2;
+		rightPower = range(Power - Rotate,-0.35,0.35);
 		LeftMotorA.set(ControlMode.PercentOutput, leftPower);
 		LeftMotorB.set(ControlMode.PercentOutput, leftPower);
 		LeftMotorC.set(ControlMode.PercentOutput, leftPower);
