@@ -30,7 +30,8 @@ public class OI {
 	public JoystickButton testbutton2 = new JoystickButton(stick1,2);
 	public JoystickButton FlipOut = new JoystickButton(stick1,8);
 	public JoystickButton FlipUp = new JoystickButton(stick1,10);
-	public JoystickButton FlipIn = new JoystickButton(stick1,12);
+	public JoystickButton FlipIn = new JoystickButton(stick1,12); 
+	public JoystickButton LifterToMid = new JoystickButton(stick1,3);
 	
 	//public 
 	
@@ -38,7 +39,7 @@ public class OI {
 		FlipOut.whenPressed(new command.FlipOut());
 		FlipUp.whenPressed(new command.FlipUp());
 		FlipIn.whenPressed(new command.FlipIn());
-		
+		LifterToMid.whenPressed(new command.LifterToMid());
 	}
 	
 	

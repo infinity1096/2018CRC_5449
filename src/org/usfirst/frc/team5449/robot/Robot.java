@@ -10,6 +10,7 @@ package org.usfirst.frc.team5449.robot;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Sendable;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
@@ -17,6 +18,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import sensors.Encoder_Module;
+import sensors.InfraRed;
 
 import org.usfirst.frc.team5449.robot.subsystems.Chassis;
 import org.usfirst.frc.team5449.robot.subsystems.Intake;
@@ -38,8 +40,9 @@ public class Robot extends TimedRobot {
 	public static Lifter lifter = new Lifter();
 	public static ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 	public static OI oi = new OI();
+	public static InfraRed infrared = new InfraRed(RobotMap.INFRARED);
 	public static boolean[] Game_data = {false,false,false};
-    
+    public int a = 100;
 	
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -125,7 +128,6 @@ public class Robot extends TimedRobot {
 		this.lifter.UnLock();
 		if (oi.testbutton.get()) {
 			if (oi.testbutton2.get()) {
-				
 			}else {
 				this.intake.In();
 			}		
@@ -143,15 +145,12 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putData(new FlipOut());
 		SmartDashboard.putData(new FlipUp());
 		SmartDashboard.putData(new FlipIn());
-	
-		
-		
+		final String string = "BlockIn?";
+	    SmartDashboard.putNumber(string,InfraRed.get());
 		SmartDashboard.putNumber("FLIP Encoder_reading", this.intake.get());	
 		SmartDashboard.putNumber("LIFTER Encoder_reading", this.lifter.getPosition());	
 		Scheduler.getInstance().run();
 	}
-	
-
 	/**
 	 * This function is called periodically during test mode.
 	 */

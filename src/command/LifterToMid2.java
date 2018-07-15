@@ -11,24 +11,23 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class FlipUp extends Command {
+public class LifterToMid2 extends Command {
 
 	private double error[] = { 0, 0 };// {error,prev_error}
 	private double error_acc = 0;
-	private double Kp = RobotMap.INTAKE_FLIP_KP;
-	private double Kd = RobotMap.INTAKE_FLIP_KD;
-	private double Ki = RobotMap.INTAKE_FLIP_KI;
+	private double Kp = RobotMap.LIFTER_KP;
+	//private double Kd = RobotMap.INTAKE_FLIP_KD;
+	//private double Ki = RobotMap.INTAKE_FLIP_KI;
 	private double last_time;
 	private Timer timer = new Timer();
 	private boolean is_down = false;
 	private double time = 9999;
 
-
-	public FlipUp() {
+	public LifterToMid2() {
 		requires(Robot.intake);
 	}
 
-	public FlipUp(double time) {
+	public LifterToMid2(double time) {
 		requires(Robot.intake);
 		this.time = time;
 	}
@@ -40,26 +39,24 @@ public class FlipUp extends Command {
 		last_time = timer.get();
 		error_acc = 0;
 		error[0] = 0;
-		error[1] = RobotMap.INTAKE_FLIP_UP_POSE - Robot.intake.get();
+		error[1] = RobotMap.LIFTER_MID_POSE - Robot.lifter.getPosition();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		double P_output, D_output,I_output , dt, output,gravity_offset;
-		error[0] = RobotMap.INTAKE_FLIP_UP_POSE - Robot.intake.get();
+		double P_output, dt, output,gravity_offset;
+		error[0] = RobotMap.LIFTER_MID_POSE - Robot.lifter.getPosition();
 		SmartDashboard.putNumber("ERROR", error[0]);
 		P_output = error[0] * Kp;
 		dt = timer.get() - last_time;
-		D_output = range(Kd * (error[0] - error[1]),-0.5,0.5);
 		last_time = timer.get();
-		I_output = Ki * error_acc;
-		gravity_offset = 0.34 * Math.cos(Math.PI/72.0d * Robot.intake.get());
-		output = P_output + D_output + I_output + gravity_offset;
+		gravity_offset = 0.05 * (Robot.lifter.getPosition());
+		output = P_output + gravity_offset;
 		SmartDashboard.putNumber("ERROR_ACC", error_acc);
-		output = range(output, -RobotMap.INTAKE_FLIP_MAXIMUM_POWER, RobotMap.INTAKE_FLIP_MAXIMUM_POWER);
+		output = range(output, -RobotMap.LIFTER_MINIMUM_POWER, RobotMap.LIFTER_MAXIMUM_POWER);
 		
 		
-		SmartDashboard.putNumber("INTAKE OUTPUT", output);
+		SmartDashboard.putNumber("LIFTER OUTPUT", output);
 		
 		error_acc += error[0] * dt;
 		if (error_acc >= 10) {
@@ -71,7 +68,7 @@ public class FlipUp extends Command {
 		}
 		
 		error[1] = error[0];		
-		Robot.intake.Move_flip(output);
+		Robot.lifter.move(output);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -81,13 +78,13 @@ public class FlipUp extends Command {
 
 	// Called once after isFinished returns true
 	protected void end() {
-		Robot.intake.Stop_flip();
+		Robot.lifter.stop();
 	}
 
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	protected void interrupted() {
-		Robot.intake.Stop_flip();
+		Robot.lifter.stop();
 	}
 
 	private double range(double val, double min, double max) {

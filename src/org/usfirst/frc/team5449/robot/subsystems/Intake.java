@@ -50,8 +50,8 @@ public class Intake extends Subsystem{
 	}
 	
 	public void In() {
-		LeftIntake.set(ControlMode.PercentOutput, RobotMap.INTAKE_INTAKE_IN_POEWR);
-		RightIntake.set(ControlMode.PercentOutput, RobotMap.INTAKE_INTAKE_IN_POEWR);
+		LeftIntake.set(ControlMode.PercentOutput, RobotMap.INTAKE_INTAKE_IN_POWER);
+		RightIntake.set(ControlMode.PercentOutput, RobotMap.INTAKE_INTAKE_IN_POWER);
 		
 	}
 	
@@ -62,14 +62,14 @@ public class Intake extends Subsystem{
 	}
 	
 	public void Out() {
-		LeftIntake.set(ControlMode.PercentOutput, -RobotMap.INTAKE_INTAKE_OUT_POEWR);
-		RightIntake.set(ControlMode.PercentOutput, -RobotMap.INTAKE_INTAKE_OUT_POEWR);
+		LeftIntake.set(ControlMode.PercentOutput, -RobotMap.INTAKE_INTAKE_OUT_POWER);
+		RightIntake.set(ControlMode.PercentOutput, -RobotMap.INTAKE_INTAKE_OUT_POWER);
 		
 	}
 	
 	public void HOLD() {
-		LeftIntake.set(ControlMode.PercentOutput, RobotMap.INTAKE_INTAKE_HOLD_POEWR);
-		RightIntake.set(ControlMode.PercentOutput, RobotMap.INTAKE_INTAKE_HOLD_POEWR);
+		LeftIntake.set(ControlMode.PercentOutput, RobotMap.INTAKE_INTAKE_HOLD_POWER);
+		RightIntake.set(ControlMode.PercentOutput, RobotMap.INTAKE_INTAKE_HOLD_POWER);
 		
 	}
 	

@@ -26,7 +26,6 @@ public class RobotMap {
 	public static final int INTAKE_CYLINDER_PORT = 1;
 	public static final int LIFTER_LOCK_PORT = 0;
 	
-	
 	public static final int LIFTER_ENCODER_A = 8;
 	public static final int LIFTER_ENCODER_B = 9;
 	public static final int CHASSIS_ENCODER_LEFT_PORT_A = 4;
@@ -37,9 +36,9 @@ public class RobotMap {
 	public static final int INTAKE_ENCODER_B = 3;
 //Parameters
 	//Chassis
-	public static final double INTAKE_INTAKE_IN_POEWR = 1.00;
-	public static final double INTAKE_INTAKE_OUT_POEWR = 1.00;
-	public static final double INTAKE_INTAKE_HOLD_POEWR = 0.2;
+	public static final double INTAKE_INTAKE_IN_POWER = 1.00;
+	public static final double INTAKE_INTAKE_OUT_POWER = 1.00;
+	public static final double INTAKE_INTAKE_HOLD_POWER = 0.2;
 	
 	
 	public static final double CHASSIS_TURNING_DEADZONE = 0.05;
@@ -48,9 +47,9 @@ public class RobotMap {
 	public static final double CHASSIS_TURNING_D = 0.18;
 	public static final double CHASSIS_TURNING_ALLOWED_ERROR = 0.50;
 	//lifter
-	public static final long LIFTER_UP_POSE = 0;
-	public static final long LIFTER_MID2_POSE = 0;
-	public static final long LIFTER_MID_POSE = 0;
+	public static final long LIFTER_UP_POSE = 90;
+	public static final long LIFTER_MID2_POSE = 60;
+	public static final long LIFTER_MID_POSE = 30;
 	public static final long LIFTER_DOWN_POSE = 0;
 	
 	public static final double LIFTER_MAXIMUM_PASSING_ERROR = 4;
@@ -59,7 +58,6 @@ public class RobotMap {
 	public static final double LIFTER_MINIMUM_POWER = 0.1;
 	
 	public static final double LIFTER_KP = 0.012;
-	public static final double LIFTER_KD = 0.0011;
 	
 	public static final double INTAKE_HOLDER_DELAY = 0.500;//sec
 	//Climber
@@ -73,7 +71,8 @@ public class RobotMap {
 	public static final double INTAKE_FLIP_UP_POSE = 36;
 	public static final double INTAKE_FLIP_OUT_POSE = 74;
 	public static final double INTAKE_FLIP_MAXIMUM_POWER = 0.9;
-	
+	//gravity offset for lifter is aboout 0.05
+	public static final int INFRARED = 1;
 
 	
 		
