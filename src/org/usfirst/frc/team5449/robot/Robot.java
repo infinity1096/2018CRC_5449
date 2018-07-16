@@ -46,12 +46,16 @@ public class Robot extends TimedRobot {
 	public static Camera camera = new Camera();
 	public static OI oi = new OI();
 	public static InfraRed infrared = new InfraRed(RobotMap.INFRARED);
-	public static boolean[] Game_data = {false,false,false};
+	public static boolean[] Game_data = { false, false, false };// false = left
     public int a = 100;
-    
     public static CameraServer server = CameraServer.getInstance();
 	public static UsbCamera c1 = new UsbCamera("USB Camera 0",0);
 	
+	/*** Select Auto Mode ***/
+	public static int auto_mode = 0;
+	/*** Select Auto Mode ***/
+	
+	Command AutonomousCommand;
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -93,6 +97,70 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		Scheduler.getInstance().removeAll();// cancel all commands
+		String gamedata;// get game data, false for left
+		gamedata = DriverStation.getInstance().getGameSpecificMessage();
+		Robot.Game_data[0] = gamedata.charAt(0) == 'R';
+		Robot.Game_data[1] = gamedata.charAt(1) == 'R';
+		Robot.Game_data[2] = gamedata.charAt(2) == 'R';
+		/***
+		switch (auto_mode) {
+		case 0:// slow auto for switch
+			SmartDashboard.putString("CURRENT_MODE", "Switch");
+			if (Game_data[0]) {
+				AutonomousCommand = new New_Auto_Pos1_R_SW();
+			} else {
+				AutonomousCommand = new New_Auto_Pos1_L_SW();
+			}
+			break;
+		case 1:// slow auto for scale
+			SmartDashboard.putString("CURRENT_MODE", "Scale");
+			if (Game_data[1]) {
+				AutonomousCommand = new New_Auto_Pos1_R_SC();
+			} else {
+				AutonomousCommand = new New_Auto_Pos1_L_SC();
+			}
+			break;
+		case 2:// fast auto for switch
+			SmartDashboard.putString("CURRENT_MODE", "Switch_Fast");
+			if (Game_data[0]) {
+				AutonomousCommand = new New_Auto_Pos1_R_SW();
+			} else {
+				AutonomousCommand = new New_Auto_Pos1_L_SW();
+			}
+			break;
+		case 3:// fast auto for scale
+			SmartDashboard.putString("CURRENT_MODE", "Scale_Fast");
+			if (Game_data[1]) {
+				AutonomousCommand = new New_Auto_Pos1_R_SC();
+			} else {
+				AutonomousCommand = new New_Auto_Pos1_L_SC();
+			}
+			break;
+		case 4:
+			if (Game_data[0]) {
+				AutonomousCommand = new New_Auto_PosMid_R_SW();
+			} else {
+				AutonomousCommand = new New_Auto_PosMid_L_SW();
+			}
+			break;
+		case 5:
+			if (Game_data[0]) {
+				AutonomousCommand = new New_Auto_Pos3_R_SC();
+			} else {
+				AutonomousCommand = new New_Auto_Pos3_L_SC();
+			}
+			break;
+		case 6:
+				AutonomousCommand = new Go_Straight();
+			break;
+				
+		}
+
+		if (AutonomousCommand != null) {
+			AutonomousCommand.start();// start auto command.
+		}
+		***/
 	}
 
 	/**
@@ -100,6 +168,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
+		
 		Scheduler.getInstance().run();
 		
 	}
@@ -113,12 +182,6 @@ public class Robot extends TimedRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		Scheduler.getInstance().removeAll();
-		String gamedata;
-		gamedata = DriverStation.getInstance().getGameSpecificMessage();
-		Robot.Game_data[0] = gamedata.charAt(0) == 'R';
-		Robot.Game_data[1] = gamedata.charAt(1) == 'R';
-		Robot.Game_data[2] = gamedata.charAt(2) == 'R';
 
 		this.chassis.reset();
 
