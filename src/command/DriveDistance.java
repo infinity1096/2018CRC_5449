@@ -94,6 +94,8 @@ public class DriveDistance extends Command {
     	angle_error_last = angleError;
     	lastError = currError;
     	currError = 0;
+    	
+    	SmartDashboard.putNumber("Gyro Angle", Gyro.getAngle());
     }
 
     // Make this return true when this Command no longer needs to run execute()

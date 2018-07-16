@@ -12,6 +12,9 @@ public class IntakeOut extends Command{
 		return false;
 	}
 	public IntakeOut() {
-		Robot.intake.Out();
+		requires(Robot.intake);
 	}
+	protected void execute() {
+		Robot.intake.Out();
+    }
 }

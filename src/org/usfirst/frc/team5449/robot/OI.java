@@ -28,8 +28,8 @@ public class OI {
 	//Buttons
 	
 
-	public JoystickButton testbutton = new JoystickButton(stick1,1);
-	public JoystickButton testbutton2 = new JoystickButton(stick1,2);
+	public JoystickButton intakein = new JoystickButton(stick1,1);
+	public JoystickButton intakeout = new JoystickButton(stick1,2);
 //	public Joystic
 	public JoystickButton FlipOut = new JoystickButton(stick1,8);
 	public JoystickButton FlipUp = new JoystickButton(stick1,10);
@@ -47,10 +47,10 @@ public class OI {
 		FlipUp.whenPressed(new command.FlipUp());
 		FlipIn.whenPressed(new command.FlipIn());
 		//LifterToMid.whenPressed(new command.LifterToMid());
-		testbutton.whenPressed(new command.CompressorOn());
-		testbutton2.whenPressed(new command.CompressorOff());
 		compressoron.whenPressed(new command.CompressorOn());
 		compressoroff.whenPressed(new command.CompressorOff());
+		Lock.whenPressed(new command.lift_lock());
+		Unlock.whenPressed(new command.lift_unlock());
 	}
 	
 	

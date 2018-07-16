@@ -30,6 +30,7 @@ import org.usfirst.frc.team5449.robot.subsystems.Lifter;
 import command.FlipIn;
 import command.FlipOut;
 import command.FlipUp;
+import commandGroup.Auto_test;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -103,6 +104,9 @@ public class Robot extends TimedRobot {
 		Robot.Game_data[0] = gamedata.charAt(0) == 'R';
 		Robot.Game_data[1] = gamedata.charAt(1) == 'R';
 		Robot.Game_data[2] = gamedata.charAt(2) == 'R';
+		
+		AutonomousCommand = new Auto_test();
+		AutonomousCommand.start();
 		/***
 		switch (auto_mode) {
 		case 0:// slow auto for switch
@@ -145,7 +149,8 @@ public class Robot extends TimedRobot {
 			}
 			break;
 		case 5:
-			if (Game_data[0]) {
+			if (Game_data[0]) { 
+			  
 				AutonomousCommand = new New_Auto_Pos3_R_SC();
 			} else {
 				AutonomousCommand = new New_Auto_Pos3_L_SC();
@@ -168,7 +173,9 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
-		
+		double[] Pos = this.chassis.get();
+		SmartDashboard.putNumber("X", Pos[0] * 0.1);
+		SmartDashboard.putNumber("Y", Pos[1] * 0.1);
 		Scheduler.getInstance().run();
 		
 	}
@@ -184,6 +191,7 @@ public class Robot extends TimedRobot {
 		// this line or comment it out.
 
 		this.chassis.reset();
+		this.lifter.UnLock();
 
 	}
 
@@ -201,14 +209,13 @@ public class Robot extends TimedRobot {
     }
 	@Override
 	public void teleopPeriodic() {
-		this.lifter.UnLock();
-		if (oi.testbutton.get()) {
-			if (oi.testbutton2.get()) {
+		if (oi.intakein.get()) {
+			if (oi.intakeout.get()) {
 			}else {
 				this.intake.In();
 			}		
 		}else {
-			if (oi.testbutton2.get()) {
+			if (oi.intakeout.get()) {
 				this.intake.Out();
 			}else {
 				this.intake.stop();

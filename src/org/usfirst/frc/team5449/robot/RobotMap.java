@@ -36,8 +36,8 @@ public class RobotMap {
 	public static final int INTAKE_ENCODER_B = 3;
 //Parameters
 	//Chassis
-	public static final double INTAKE_INTAKE_IN_POWER = 1.00;
-	public static final double INTAKE_INTAKE_OUT_POWER = 1.00;
+	public static final double INTAKE_INTAKE_IN_POWER = 0.50;
+	public static final double INTAKE_INTAKE_OUT_POWER = 0.50;
 	public static final double INTAKE_INTAKE_HOLD_POWER = 0.2;
 	
 	
