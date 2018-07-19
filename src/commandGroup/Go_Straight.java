@@ -16,13 +16,12 @@ import command.TurnTo;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
   
-public class Auto_test extends CommandGroup{
-	public Auto_test() {
+public class Go_Straight extends CommandGroup{
+	public Go_Straight() {
 		
 		
-		//addSequential(new DriveDistance(2));
+		addSequential(new DriveDistance(4.0));
 		
-		addSequential(new TurnTo(-180));
 }
 
 }

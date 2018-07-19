@@ -7,7 +7,6 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import command.Move;
-import command.OldDriversPrivilege;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -48,7 +47,7 @@ public class Chassis extends Subsystem {
     	//Encoder
     	encoder_l = new Encoder(RobotMap.CHASSIS_ENCODER_LEFT_PORT_A,RobotMap.CHASSIS_ENCODER_LEFT_PORT_B);
     	encoder_r = new Encoder(RobotMap.CHASSIS_ENCODER_RIGHT_PORT_A,RobotMap.CHASSIS_ENCODER_RIGHT_PORT_B);
-    	encoder_l.setReverseDirection(true);
+    	encoder_r.setReverseDirection(true);
     	//Solenoid
     	ClutchCylinder = new Solenoid(RobotMap.PCM_PORT,RobotMap.CHASSIS_CLUTCH_SLOENOID_PORT);
     

@@ -2,8 +2,6 @@ package command;
 
 import org.usfirst.frc.team5449.robot.Robot;
 import org.usfirst.frc.team5449.robot.RobotMap;
-import org.usfirst.frc.team5449.robot.VariablesToBeDetermined;
-import org.usfirst.frc.team5449.robot.subsystems.Chassis;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.interfaces.Accelerometer.Range;
@@ -29,7 +27,7 @@ public class DriveDistance extends Command {
 	private double angle_error_last = 0;
 	private double A_output_last = 0;
 	private double timeout = 5;
-	private double maxpower = 0.8;
+	private double maxpower = 0.5;
 	
     public DriveDistance(double distance) {
     	requires(Robot.chassis);
@@ -48,6 +46,8 @@ public class DriveDistance extends Command {
 		this.timeout = timeout;
 		this.maxpower = maxpower;
 	}
+    
+
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.chassis.reset();
@@ -87,15 +87,13 @@ public class DriveDistance extends Command {
     	SmartDashboard.putNumber("ERROR", currError);
     	SmartDashboard.putNumber("ERROR_DOT", currError - lastError);
     	SmartDashboard.putNumber("Angle_error", angleError);
-    	Robot.chassis.arcade_drive(output,-angleP);//TODO 
+    	Robot.chassis.arcade_drive(output,angleP);//TODO 
     	A_output_last = angleP;
     	//retro
     	lastTime = timer.get();
     	angle_error_last = angleError;
     	lastError = currError;
     	currError = 0;
-    	
-    	SmartDashboard.putNumber("Gyro Angle", Gyro.getAngle());
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -104,6 +102,7 @@ public class DriveDistance extends Command {
     	return ((Math.abs(currError)<=allowedError) && (Math.abs(currError - lastError) < 0.01))|| timer.get() >timeout;
     	
     }
+
     // Called once after isFinished returns true
     protected void end() {
     	Robot.chassis.stop();
@@ -116,7 +115,7 @@ public class DriveDistance extends Command {
     
     /**cm*/
     private double calcDis(double encoderValue){
-    	return encoderValue * VariablesToBeDetermined.Calculate_Distance;
+    	return encoderValue * 0.0003192;
     }
     
     private double range2(double val,double min,double max){

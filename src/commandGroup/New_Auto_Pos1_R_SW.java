@@ -15,14 +15,15 @@ import command.LifterToUp;
 import command.TurnTo;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
-  
-public class Auto_test extends CommandGroup{
-	public Auto_test() {
-		
-		
-		//addSequential(new DriveDistance(2));
-		
-		addSequential(new TurnTo(-180));
-}
 
+import edu.wpi.first.wpilibj.command.CommandGroup;
+
+public class New_Auto_Pos1_R_SW extends CommandGroup{
+	public New_Auto_Pos1_R_SW(){
+		addSequential(new DriveDistance(1.2));//1.25,1.6
+		addSequential(new TurnTo(-90));
+		addSequential(new DriveDistance(4.2));//5.45,1.6
+		addSequential(new TurnTo(0));
+		addSequential(new SwitchRelease());//5.45,3.55
+	}
 }

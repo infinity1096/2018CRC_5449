@@ -31,6 +31,15 @@ import command.FlipIn;
 import command.FlipOut;
 import command.FlipUp;
 import commandGroup.Auto_test;
+import commandGroup.Go_Straight;
+import commandGroup.New_Auto_Pos1_L_SC;
+import commandGroup.New_Auto_Pos1_L_SW;
+import commandGroup.New_Auto_Pos1_R_SC;
+import commandGroup.New_Auto_Pos1_R_SW;
+import commandGroup.New_Auto_Pos3_L_SC;
+import commandGroup.New_Auto_Pos3_R_SC;
+import commandGroup.New_Auto_PosMid_L_SW;
+import commandGroup.New_Auto_PosMid_R_SW;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -38,8 +47,16 @@ import commandGroup.Auto_test;
  * creating this project, you must also update the build.properties file in the
  * project.
  */
+
+/* TODO LIST
+ * 
+ * 1.Lifter PID
+ * 2.Auto Mode
+ * 3.Manual Calibration
+ * 
+ */
+
 public class Robot extends TimedRobot {
-	//public static Camera camera = new Camera();
 	public static Chassis chassis = new Chassis();
 	public static Intake intake = new Intake();
 	public static Lifter lifter = new Lifter();
@@ -103,7 +120,7 @@ public class Robot extends TimedRobot {
 		
 		AutonomousCommand = new Auto_test();
 		AutonomousCommand.start();
-		/***
+		
 		switch (auto_mode) {
 		case 0:// slow auto for switch
 			SmartDashboard.putString("CURRENT_MODE", "Switch");
@@ -161,7 +178,6 @@ public class Robot extends TimedRobot {
 		if (AutonomousCommand != null) {
 			AutonomousCommand.start();// start auto command.
 		}
-		***/
 	}
 
 	/**

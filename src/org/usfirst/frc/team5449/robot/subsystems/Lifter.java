@@ -27,7 +27,6 @@ public class Lifter extends Subsystem{
 		Liftmotor_leftback.setInverted(true);
 		lock = new Solenoid(RobotMap.PCM_PORT,RobotMap.LIFTER_LOCK_PORT);
 		encoder = new Encoder(RobotMap.LIFTER_ENCODER_A,RobotMap.LIFTER_ENCODER_B);
-		encoder.setReverseDirection(true);
 	}
 	
 	//moves lifter

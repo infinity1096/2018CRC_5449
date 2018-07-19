@@ -37,19 +37,19 @@ public class RobotMap {
 //Parameters
 	//Chassis
 	public static final double INTAKE_INTAKE_IN_POWER = 0.50;
-	public static final double INTAKE_INTAKE_OUT_POWER = 0.50;
+	public static final double INTAKE_INTAKE_OUT_POWER = 0.70;
 	public static final double INTAKE_INTAKE_HOLD_POWER = 0.2;
 	
 	
 	public static final double CHASSIS_TURNING_DEADZONE = 0.05;
 	public static final double CHASSIS_MAX_PASSING_ERROR = 0.1;
-	public static final double CHASSIS_TURNING_P = 0.028;
-	public static final double CHASSIS_TURNING_D = 0.18;
+	public static final double CHASSIS_TURNING_P = 0.005;
+	public static final double CHASSIS_TURNING_D = 1.0;
 	public static final double CHASSIS_TURNING_ALLOWED_ERROR = 0.50;
 	//lifter
-	public static final long LIFTER_UP_POSE = 90;
-	public static final long LIFTER_MID2_POSE = 60;
-	public static final long LIFTER_MID_POSE = 30;
+	public static final long LIFTER_UP_POSE = 680;
+	public static final long LIFTER_MID2_POSE = 453;
+	public static final long LIFTER_MID_POSE = 226;
 	public static final long LIFTER_DOWN_POSE = 0;
 	
 	public static final double LIFTER_MAXIMUM_PASSING_ERROR = 4;
@@ -61,7 +61,6 @@ public class RobotMap {
 	
 	public static final double INTAKE_HOLDER_DELAY = 0.500;//sec
 	
-	public static final double LIFTER_TOP = -680;
 	//Climber
 	public static final double CLIMBER_POWER = 1.000;
 	

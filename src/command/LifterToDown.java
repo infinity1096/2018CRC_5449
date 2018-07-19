@@ -51,7 +51,7 @@ public class LifterToDown extends Command {
 		P_output = error[0] * Kp;
 		dt = timer.get() - last_time;
 		last_time = timer.get();
-		gravity_offset = 0.05 * (Robot.lifter.getPosition());
+		gravity_offset = 0.005 * (Robot.lifter.getPosition());
 		output = P_output + gravity_offset;
 		SmartDashboard.putNumber("ERROR_ACC", error_acc);
 		output = range(output, -RobotMap.LIFTER_MINIMUM_POWER, RobotMap.LIFTER_MAXIMUM_POWER);

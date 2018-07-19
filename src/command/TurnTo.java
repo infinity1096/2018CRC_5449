@@ -21,10 +21,18 @@ public class TurnTo extends Command {
 	private double lastTime;
 	private double angleTarget;
 	private double lastoutput;
+	double timeout = 3;
 	
     public TurnTo(double angleTarget) {
         requires(Robot.chassis);
         this.angleTarget = angleTarget;
+        
+    }
+    
+    public TurnTo(double angleTarget,double timeout) {
+        requires(Robot.chassis);
+        this.angleTarget = angleTarget;
+        this.timeout = timeout;
         
     }
 
@@ -60,9 +68,9 @@ public class TurnTo extends Command {
     	double output = varP + varD;
     	output = range2(output,0.354,0.7);
 
-    	
+    	SmartDashboard.putNumber("ERROR", currError);
     	lastoutput = output;
-    	Robot.chassis.arcade_drive(0, -output);
+    	Robot.chassis.arcade_drive(0, output);
     	
     	SmartDashboard.putNumber("Xdot", (currError - lastError));
     	//Retro

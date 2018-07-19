@@ -50,21 +50,18 @@ public class Intake extends Subsystem{
 	}
 	
 	public void In() {
-		this.Open();
 		LeftIntake.set(ControlMode.PercentOutput, RobotMap.INTAKE_INTAKE_IN_POWER);
 		RightIntake.set(ControlMode.PercentOutput, RobotMap.INTAKE_INTAKE_IN_POWER);
 		
 	}
 	
 	public void stop() {
-		this.Close();
 		LeftIntake.set(ControlMode.PercentOutput, 0);
 		RightIntake.set(ControlMode.PercentOutput, 0);
 		
 	}
 	
 	public void Out() {
-		this.Close();
 		LeftIntake.set(ControlMode.PercentOutput, -RobotMap.INTAKE_INTAKE_OUT_POWER);
 		RightIntake.set(ControlMode.PercentOutput, -RobotMap.INTAKE_INTAKE_OUT_POWER);
 		

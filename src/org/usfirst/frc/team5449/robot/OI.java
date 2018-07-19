@@ -27,34 +27,42 @@ public class OI {
 	public Joystick stick1 = new Joystick(1);
 	//Buttons
 	
-
-	public JoystickButton intakein = new JoystickButton(stick1,1);
-	public JoystickButton intakeout = new JoystickButton(stick1,2);
-//	public Joystic
+	public JoystickButton intakein = new JoystickButton(stick1,6);
+	public JoystickButton intakeout = new JoystickButton(stick1,5);
+	public JoystickButton intakeopen = new JoystickButton(stick1,4);
+	public JoystickButton intakeclose = new JoystickButton(stick1,3);
 	public JoystickButton FlipOut = new JoystickButton(stick1,8);
 	public JoystickButton FlipUp = new JoystickButton(stick1,10);
 	public JoystickButton FlipIn = new JoystickButton(stick1,12); 
-	public JoystickButton compressoron = new JoystickButton(stick1, 9);
-	public JoystickButton compressoroff = new JoystickButton(stick1, 11);
-	public JoystickButton LifterToMid = new JoystickButton(stick1,3);
-	public JoystickButton Lock = new JoystickButton(stick1,6);
-    public JoystickButton Unlock = new JoystickButton(stick1,4);
-    public JoystickButton ChangeGearRatioHigh = new JoystickButton(stick0,11);
-    public JoystickButton ChangeGearRatioLow = new JoystickButton(stick0,12);
+	public JoystickButton LifterToDown = new JoystickButton(stick1,2);
+	public JoystickButton LifterToMid = new JoystickButton(stick1,11);
+	public JoystickButton LifterToMid2 = new JoystickButton(stick1,9);
+	public JoystickButton LifterToUp = new JoystickButton(stick1,7);
+	
+	public JoystickButton Lock = new JoystickButton(stick0,7);
+    public JoystickButton Unlock = new JoystickButton(stick0,8);
+    public JoystickButton ChangeGearRatioHigh = new JoystickButton(stick0,9);
+    public JoystickButton ChangeGearRatioLow = new JoystickButton(stick0,10);
+    public JoystickButton compressoron = new JoystickButton(stick0, 11);
+	public JoystickButton compressoroff = new JoystickButton(stick0, 12);
     
-	//public 
 	
 	public OI() {
 		FlipOut.whenPressed(new command.FlipOut());
 		FlipUp.whenPressed(new command.FlipUp());
 		FlipIn.whenPressed(new command.FlipIn());
-		//LifterToMid.whenPressed(new command.LifterToMid());
+		LifterToDown.whenPressed(new command.LifterToDown());
+		LifterToMid.whenPressed(new command.LifterToMid());
+		LifterToMid2.whenPressed(new command.LifterToMid2());
+		LifterToUp.whenPressed(new command.LifterToUp());
 		compressoron.whenPressed(new command.CompressorOn());
 		compressoroff.whenPressed(new command.CompressorOff());
 		Lock.whenPressed(new command.lift_lock());
 		Unlock.whenPressed(new command.lift_unlock());
 		ChangeGearRatioHigh.whenPressed(new command.GearRatioHigh());
 		ChangeGearRatioLow.whenPressed(new command.GearRatioLow());
+		intakeopen.whenPressed(new command.IntakeOpen());
+		intakeclose.whenPressed(new command.IntakeClose());
 	}
 	
 	
