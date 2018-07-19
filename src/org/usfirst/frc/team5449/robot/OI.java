@@ -39,6 +39,8 @@ public class OI {
 	public JoystickButton LifterToMid = new JoystickButton(stick1,3);
 	public JoystickButton Lock = new JoystickButton(stick1,6);
     public JoystickButton Unlock = new JoystickButton(stick1,4);
+    public JoystickButton ChangeGearRatioHigh = new JoystickButton(stick0,11);
+    public JoystickButton ChangeGearRatioLow = new JoystickButton(stick0,12);
     
 	//public 
 	
@@ -51,6 +53,8 @@ public class OI {
 		compressoroff.whenPressed(new command.CompressorOff());
 		Lock.whenPressed(new command.lift_lock());
 		Unlock.whenPressed(new command.lift_unlock());
+		ChangeGearRatioHigh.whenPressed(new command.GearRatioHigh());
+		ChangeGearRatioLow.whenPressed(new command.GearRatioLow());
 	}
 	
 	

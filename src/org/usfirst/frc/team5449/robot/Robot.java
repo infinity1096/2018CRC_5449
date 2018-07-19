@@ -50,7 +50,6 @@ public class Robot extends TimedRobot {
 	public static boolean[] Game_data = { false, false, false };// false = left
     public int a = 100;
     public static CameraServer server = CameraServer.getInstance();
-	public static UsbCamera c1 = new UsbCamera("USB Camera 0",0);
 	
 	/*** Select Auto Mode ***/
 	public static int auto_mode = 0;
@@ -64,10 +63,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		Scheduler.getInstance().removeAll();
-		server.startAutomaticCapture(c1);
-		c1.setResolution(960, 540);
-		c1.setFPS(24);
-		//camera.Camera();
+		server.startAutomaticCapture();
 		}
 
 	/**

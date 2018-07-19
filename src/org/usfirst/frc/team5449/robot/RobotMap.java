@@ -60,16 +60,20 @@ public class RobotMap {
 	public static final double LIFTER_KP = 0.012;
 	
 	public static final double INTAKE_HOLDER_DELAY = 0.500;//sec
+	
+	public static final double LIFTER_TOP = -680;
 	//Climber
 	public static final double CLIMBER_POWER = 1.000;
 	
 	//Flip
-	public static final double INTAKE_FLIP_KP = 0.016;
-	public static final double INTAKE_FLIP_KD = 0.12;
+	public static final double INTAKE_FLIP_KP = 0.005;
+	public static final double INTAKE_FLIP_KD = 0.10;
 	public static final double INTAKE_FLIP_KI = 0.004;
 	public static final double INTAKE_FLIP_IN_POSE = 0;
-	public static final double INTAKE_FLIP_UP_POSE = 36;
-	public static final double INTAKE_FLIP_OUT_POSE = 74;
+	//public static final double INTAKE_FLIP_UP_POSE = 72;
+	public static final double INTAKE_FLIP_UP_POSE = 72;
+	//public static final double INTAKE_FLIP_OUT_POSE = 148;
+	public static final double INTAKE_FLIP_OUT_POSE = 130;
 	public static final double INTAKE_FLIP_MAXIMUM_POWER = 0.9;
 	//gravity offset for lifter is aboout 0.05
 	public static final int INFRARED = 1;

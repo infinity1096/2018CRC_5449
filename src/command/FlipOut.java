@@ -52,7 +52,7 @@ public class FlipOut extends Command {
 		D_output = range(Kd * (error[0] - error[1]),-0.5,0.5);
 		last_time = timer.get();
 		I_output = Ki * error_acc;
-		gravity_offset = 0.34 * Math.cos(Math.PI/72.0d * Robot.intake.get());
+		gravity_offset = 0.34 * Math.cos(Math.PI/72.0d * Robot.intake.get() / 2);
 		output = P_output + D_output + I_output + gravity_offset;
 		SmartDashboard.putNumber("ERROR_ACC", error_acc);
 		output = range(output, -RobotMap.INTAKE_FLIP_MAXIMUM_POWER, RobotMap.INTAKE_FLIP_MAXIMUM_POWER);
